@@ -37,6 +37,7 @@ class SourceReleaseTests(unittest.TestCase):
                              f'{expected}  first.zip\n'.encode('ascii'))
             with zipfile.ZipFile(first) as archive:
                 self.assertEqual(archive.read('reverse-engineering-unpacking/examples/case/trace.txt'), original)
+                self.assertEqual({entry.create_system for entry in archive.infolist()}, {3})
             self.assertEqual(evidence.read_bytes(), original)
 
     def test_verification_rejects_source_changes_until_manifest_is_refreshed(self):

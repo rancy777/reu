@@ -2,6 +2,8 @@
 
 A source archive or wheel produced locally is a validation artifact until it has a committed, traceable source state and an authorized release.
 
+Canonical repository: [rancy777/reu](https://github.com/rancy777/reu), **private**, formal branch `main`. The [CI workflow](https://github.com/rancy777/reu/actions/workflows/ci.yml?query=branch%3Amain) provides per-commit checks and downloadable build artifacts. Repository access is required while private. Creating a GitHub Release or changing visibility is a separate action from pushing source and running CI.
+
 ## Offline gate
 
 From an isolated Python 3.11+ environment:

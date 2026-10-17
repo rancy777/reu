@@ -17,7 +17,7 @@ Windows / .NET · Android / DEX · Native / ELF
 [![Version 1.5.0](https://img.shields.io/badge/Version-1.5.0-5C6F91?style=flat-square&labelColor=253044)](CHANGELOG.md)
 [![MIT License](https://img.shields.io/badge/License-MIT-4F8565?style=flat-square&labelColor=253044)](LICENSE)
 
-[**See the results**](#measured-cases) · [**Quick start**](#quick-start) · [FAQ](#faq) · [Docs](#documentation)
+[**See the results**](#measured-cases) · [**Quick start**](#quick-start) · [CI & downloads](https://github.com/rancy777/reu/actions/workflows/ci.yml?query=branch%3Amain) · [Docs](#documentation)
 
 **English** · [简体中文](README.zh-CN.md)
 
@@ -85,9 +85,11 @@ These are actual static disassembly captures. The recovered function preserves t
 
 ## Quick start
 
-With **Python 3.11+**, download or clone the source, open the project root, and run:
+With **Python 3.11+** and access to this private repository, clone the source and run:
 
 ```bash
+git clone https://github.com/rancy777/reu.git
+cd reu
 python -m pip install -e .
 re-skill route --input runtime/examples/triage.sample.json
 ```
@@ -208,7 +210,7 @@ The [tool catalog](integrations/mcp-upstream-catalog.yaml) includes IDA, Ghidra,
 
 ## Project status
 
-**v1.5.0 · engineering candidate.** Two Windows native-tool experiments are recorded; broader sample coverage remains open. Third-party MCP providers follow their upstream installation instructions; repeating provider validation is not a release prerequisite. Windows/Ubuntu CI is configured; remote runs are not recorded. [Verification](docs/verification.md) · [Scope and remaining work](docs/project-status.md).
+**v1.5.0 · engineering candidate.** Two Windows native-tool experiments are recorded; broader sample coverage remains open. Third-party MCP providers follow their upstream installation instructions; repeating provider validation is not a release prerequisite. [Windows/Ubuntu CI](https://github.com/rancy777/reu/actions/workflows/ci.yml?query=branch%3Amain) checks Python 3.11–3.14, installation, source integrity and the native demo. Successful runs provide verified source archives, wheels and demo evidence under **Artifacts**. [Verification](docs/verification.md) · [Scope and remaining work](docs/project-status.md).
 
 <details>
 <summary>Run local checks and interpret corpus counts</summary>

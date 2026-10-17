@@ -4,12 +4,12 @@ Version: **1.5.0 engineering candidate**. This page records scope and outstandin
 
 | Area | Current evidence | Boundary |
 | --- | --- | --- |
-| Git baseline | Local Git repository and traceable commits on `main`; inspect the current source identity with `git rev-parse HEAD` | Canonical GitHub repository/ref and synchronization are not yet confirmed; local commits do not establish a formal remote baseline |
+| Git baseline | Canonical private repository [rancy777/reu](https://github.com/rancy777/reu), formal branch `main`; local `main` tracks `origin/main` | Compare full local/remote SHAs after fetching; historical experiment records retain their original pre-Git provenance |
 | Skill packaging | Standard name/description frontmatter; portable copy installer and dependency checks | Host discovery locations are documented; no claim that every agent host was exercised |
 | Python runtime | Local Windows Python 3.11 tests, including official MCP SDK 2.3.0 against a harmless local fixture | No third-party reverse-engineering provider was connected |
 | Automated regressions | 16 records form a strict offline gate | Covers deterministic policy and routing behavior |
 | Research regressions | 8 separate records retain 5 PARTIAL and 3 MANUAL results | Not counted as fully automated acceptance |
-| CI | Windows/Ubuntu × Python 3.11–3.14; SDK fixture and clean wheel-install jobs on both OSes; committed-manifest gate, Windows native-demo rebuild, artifacts and aggregate result | Action SHAs and local YAML checks are recorded; remote GitHub Actions has not yet run for this source state |
+| CI | [Remote Actions runs](https://github.com/rancy777/reu/actions/workflows/ci.yml?query=branch%3Amain): Windows/Ubuntu × Python 3.11–3.14; SDK fixture, wheel installs, committed-manifest gate, Windows native demo, artifacts and aggregate result | Results belong to each run's exact commit; a successful earlier run does not certify later changes |
 | Target triage | Structural PE/DEX/ELF/package triage and documented investigation workflows | Triage and routing do not establish successful unpacking |
 | VMP packing experiment | One [owned VMP 3.8.4 x64 reconstruction](cases/vmprotect-3.8.4-x64.md); 45 behavior and 14 structural checks passed | Known OEP and nine manually identified import-call repairs; no selected virtualized functions |
 | VMP function-virtualization experiment | One [SDK-marked pure-function recovery](cases/vmprotect-3.8.4-virtualized-x64.md); 53 native instructions, 100,008 input checks and 128 protected-program comparisons | Separately source-built CLI harness; full-domain proof remains unknown. No arbitrary-program devirtualization or real-MCP compatibility claim |

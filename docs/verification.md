@@ -92,3 +92,13 @@ Both workflow files passed **actionlint 1.7.12** after checksum verification of 
 The source builder now emits LF-only manifest/checksum files on every platform. Two added release regressions check deterministic archives, byte-identical CRLF evidence, and rejection of stale source manifests. After these additions, the full fresh-environment suite passed **76 tests**.
 
 The initial local commit was `6944c3f20eca4ac18bf613d9279196e33a0fa289`. A separate clone passed manifest verification, but its full suite exposed a Windows first-lock race: one of 12 concurrent writers could attempt the initialization-byte write after another writer acquired the lock. That initial commit is not recorded as accepted. The initialization write was removed because Windows permits locking beyond EOF; no compatibility fallback was added. The concurrency test now starts 12 writers together across eight fresh-file rounds. After the fix, the full suite again passed **76 tests**. The fix is a subsequent commit, preserving the initial history.
+
+## 2026-10-17: formal GitHub baseline and remote CI
+
+The canonical repository is [rancy777/reu](https://github.com/rancy777/reu), created **private** at the owner's request. The formal branch is `main`; local `main` tracks `origin/main`. Historical pre-Git experiment receipts are retained as historical records, rather than rewritten to imply they originated from a later commit.
+
+The [first remote run](https://github.com/rancy777/reu/actions/runs/39010362150), on `1bfe888f589bb6d9b478efaa144d704866118c0f`, passed the eight OS/Python test jobs, SDK fixture jobs, wheel installations and Windows native demo. Its source-integrity job failed because Windows and Linux `Path` ordering placed mixed-case paths differently; the final aggregate correctly failed as well.
+
+Source inventory and ZIP entry ordering were changed to explicit POSIX-string order, with a mixed-case-path regression. The local full suite then passed **77 tests**. The [subsequent remote run](https://github.com/rancy777/reu/actions/runs/39010541785), on **`9e76034f4d6727fef4543c6645dca81637050572`**, completed with **all 15 jobs successful**: Windows/Ubuntu × Python 3.11–3.14, two SDK fixture jobs, two clean wheel installations, source integrity, the Windows public-IR native demo, and `CI passed`.
+
+These runs verify this project's CI and protocol fixtures, not a third-party debugger MCP provider. The native demo rebuilds recorded IR and validates its harness; it does not perform a new protected-program recovery. Later commits must retain their own passing CI result. Pushing this private repository did not create a release tag, publish a GitHub Release, deploy software or change repository visibility.

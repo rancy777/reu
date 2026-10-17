@@ -170,6 +170,7 @@ def build(root: Path, archive: Path) -> dict:
         for rel in sorted(files, key=lambda path: path.as_posix()):
             payload = (root / rel).read_bytes()
             entry = zipfile.ZipInfo(f"{ARCHIVE_ROOT}/{rel.as_posix()}")
+            entry.create_system = 3  # Stable POSIX metadata on Windows and Linux.
             entry.date_time = datetime.fromtimestamp(
                 build_timestamp()[0], timezone.utc
             ).timetuple()[:6]

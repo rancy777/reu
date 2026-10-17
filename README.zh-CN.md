@@ -17,7 +17,7 @@ Windows / .NET · Android / DEX · Native / ELF
 [![Version 1.5.0](https://img.shields.io/badge/Version-1.5.0-5C6F91?style=flat-square&labelColor=253044)](CHANGELOG.md)
 [![MIT License](https://img.shields.io/badge/License-MIT-4F8565?style=flat-square&labelColor=253044)](LICENSE)
 
-[**看实测**](#实测案例) · [**快速上手**](#快速上手) · [常见问题](#常见问题) · [文档](#文档导航)
+[**看实测**](#实测案例) · [**快速上手**](#快速上手) · [CI 与下载](https://github.com/rancy777/reu/actions/workflows/ci.yml?query=branch%3Amain) · [文档](#文档导航)
 
 [English](README.md) · **简体中文**
 
@@ -85,9 +85,11 @@ REU 是 **Agent Skill + Python CLI**：识别文件、选择实验、连接现�
 
 ## 快速上手
 
-准备 **Python 3.11+**，下载或克隆源码后，在项目根目录执行：
+准备 **Python 3.11+**，使用有此私有仓库访问权限的 GitHub 账号克隆并运行：
 
 ```bash
+git clone https://github.com/rancy777/reu.git
+cd reu
 python -m pip install -e .
 re-skill route --input runtime/examples/triage.sample.json
 ```
@@ -208,7 +210,7 @@ re-skill discover --config ./providers.json --registry ./integrations/mcp-provid
 
 ## 当前状态
 
-**v1.5.0 · 工程候选阶段。** 两组 Windows 原生工具实验已有记录，更广泛的样本覆盖仍待补充。第三方 MCP Provider 按上游说明安装使用，重复验证不作为发布前置条件。Windows/Ubuntu CI 已配置，尚无远程运行记录。[验证记录](docs/verification.md) · [待办与边界](docs/project-status.md)。
+**v1.5.0 · 工程候选阶段。** 两组 Windows 原生工具实验已有记录，更广泛的样本覆盖仍待补充。第三方 MCP Provider 按上游说明安装使用，重复验证不作为发布前置条件。[Windows/Ubuntu CI](https://github.com/rancy777/reu/actions/workflows/ci.yml?query=branch%3Amain)检查 Python 3.11–3.14、安装、源码完整性和原生演示。成功运行的 **Artifacts** 中提供验收后的源码包、wheel 与演示证据。[验证记录](docs/verification.md) · [待办与边界](docs/project-status.md)。
 
 <details>
 <summary>运行本地检查，了解语料统计</summary>
