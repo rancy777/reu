@@ -41,8 +41,8 @@ def _file_lock(path: Path, *, timeout: float = 15.0):
     try:
         if os.name == 'nt':
             import msvcrt
-            if os.fstat(fd).st_size == 0:
-                os.write(fd, b'\0')
+            # Windows permits locking beyond EOF. Writing an initial byte before
+            # acquisition races another writer that has already locked byte 0.
             lock = lambda: msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
             unlock = lambda: msvcrt.locking(fd, msvcrt.LK_UNLCK, 1)
             retry_errors = (OSError,)

@@ -4,7 +4,7 @@ Version: **1.5.0 engineering candidate**. This page records scope and outstandin
 
 | Area | Current evidence | Boundary |
 | --- | --- | --- |
-| Git baseline | Local Git repository initialized on `main`; initial source snapshot is being audited | Canonical GitHub repository/ref and synchronization are not yet confirmed; local initialization does not establish a formal remote baseline |
+| Git baseline | Local Git repository and traceable commits on `main`; inspect the current source identity with `git rev-parse HEAD` | Canonical GitHub repository/ref and synchronization are not yet confirmed; local commits do not establish a formal remote baseline |
 | Skill packaging | Standard name/description frontmatter; portable copy installer and dependency checks | Host discovery locations are documented; no claim that every agent host was exercised |
 | Python runtime | Local Windows Python 3.11 tests, including official MCP SDK 2.3.0 against a harmless local fixture | No third-party reverse-engineering provider was connected |
 | Automated regressions | 16 records form a strict offline gate | Covers deterministic policy and routing behavior |

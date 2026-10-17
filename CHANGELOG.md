@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Fixed a Windows corpus-lock initialization race: lock acquisition no longer writes a byte before obtaining the lock. Concurrent duplicate-ID checks now cover eight fresh-file rounds.
 - Strengthened CI with pinned action SHAs, committed-manifest checks, a Windows native-demo rebuild, verified build artifacts, job timeouts and a required aggregate result.
 - Fixed Release output placement and tag/version matching; preserved byte-identified experiment files across Git checkouts.
 - Added a fresh-directory native demo rebuild from the published recovered IR, with an isolated EXE behavior check; clarified that it does not perform a new devirtualization or protected-program comparison.

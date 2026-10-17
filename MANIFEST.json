@@ -54,8 +54,8 @@
       "bytes": 352
     },
     "CHANGELOG.md": {
-      "sha256": "f2f9c65a38bcf50e41a815d002b34d81aa610d3b870e6006d3b70e9c9f532e12",
-      "bytes": 3453
+      "sha256": "1d791f4fa2eb54ea8cfd3261a34370cabd169e2e98a0092850518ac1ef7e34ce",
+      "bytes": 3638
     },
     "CODE_OF_CONDUCT.md": {
       "sha256": "442cda2892d7f9208d783fd3d7ba4e64f1fd9a4ac49d9be6a55d5a3f43580b90",
@@ -326,8 +326,8 @@
       "bytes": 1954
     },
     "docs/project-status.md": {
-      "sha256": "89fbd3ce5d367cbe5970e0723af163d2ddf799c87c996177b8c99029a54e02f3",
-      "bytes": 3203
+      "sha256": "a9474605eb945243e6ddfd4f6385667f128239a48ab846eb1da6db377640d51a",
+      "bytes": 3225
     },
     "docs/releasing.md": {
       "sha256": "6019143f3b756060447bac9ccbcc90d430c4484ec4b9360d0391abd6712aaf16",
@@ -338,8 +338,8 @@
       "bytes": 8370
     },
     "docs/verification.md": {
-      "sha256": "901c26dbbacd71d0edc39ec951e0b42edc85f727e73c1591933a6ecf92baf752",
-      "bytes": 8571
+      "sha256": "9b495fc78a5c7c85886a7767afc29e09aef1af9d3720b522ab11d6dcfbf95ba2",
+      "bytes": 9231
     },
     "engines/evidence-fusion.md": {
       "sha256": "a5659e64be486a2031c996013e0cde8899dd7529c2a43fdb8ffaa4091cf5d545",
@@ -782,8 +782,8 @@
       "bytes": 1773
     },
     "runtime/re_skill/corpus.py": {
-      "sha256": "9782a2e6c9690228da376c81a3dd8461b0005b64e9a0243215570285889c5345",
-      "bytes": 16424
+      "sha256": "20fe413d5f2177ca52f19e54489508aba026627e2531d2a912187868b57ee1aa",
+      "bytes": 16506
     },
     "runtime/re_skill/discovery.py": {
       "sha256": "b8464f52ee2411488e2fd3932f03c009bb95c46b6bd61c76e5e3706639c64bcf",
@@ -934,8 +934,8 @@
       "bytes": 3374
     },
     "runtime/tests/test_v15_review.py": {
-      "sha256": "4efc9cb90eca8dae6cdfdf8d37b4494dc0aec184798f9692fc0f08b45937f18a",
-      "bytes": 21011
+      "sha256": "713be49e1af1c6ed215d33d8c0ff6cda9a836e27be6054e729ebb39544c2461d",
+      "bytes": 21391
     },
     "scripts/check_install.py": {
       "sha256": "93f2e1c2c28ecdca1362696e9293f79cbdb362091b52643975e8398bd86f60d7",

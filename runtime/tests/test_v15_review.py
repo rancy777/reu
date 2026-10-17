@@ -9,6 +9,7 @@ import json
 import os
 import sys
 import tempfile
+from threading import Barrier
 import unittest
 from unittest.mock import patch
 
@@ -115,17 +116,22 @@ class ReviewedCorpusTests(unittest.TestCase):
             with self.assertRaises(ValueError): store.append('other/a.jsonl',{'a':1})
 
     def test_two_concurrent_writers_cannot_append_same_id(self):
-        with tempfile.TemporaryDirectory() as td:
-            store=CorpusStore(td)
-            def write_one(n):
-                try: store.add_node({'node_id':'same-id','node_type':'source','label':str(n)})
-                except ValueError as e: return str(e)
-                return 'OK'
-            with ThreadPoolExecutor(max_workers=12) as pool:
-                results=list(pool.map(write_one,range(12)))
-            self.assertEqual(results.count('OK'),1)
-            self.assertTrue(all(x=='OK' or 'duplicate' in x for x in results))
-            self.assertEqual(len(store.read('evidence-graph/nodes.jsonl')),1)
+        # Fresh files exercise the first-acquisition race, rather than reusing
+        # an initialized lock file. Start all writers together on each round.
+        for round_number in range(8):
+            with self.subTest(round=round_number), tempfile.TemporaryDirectory() as td:
+                store=CorpusStore(td)
+                start=Barrier(12)
+                def write_one(n):
+                    start.wait(timeout=10)
+                    try: store.add_node({'node_id':'same-id','node_type':'source','label':str(n)})
+                    except ValueError as e: return str(e)
+                    return 'OK'
+                with ThreadPoolExecutor(max_workers=12) as pool:
+                    results=list(pool.map(write_one,range(12)))
+                self.assertEqual(results.count('OK'),1)
+                self.assertTrue(all(x=='OK' or 'duplicate' in x for x in results))
+                self.assertEqual(len(store.read('evidence-graph/nodes.jsonl')),1)
 
     def test_repair_graph_restores_nodes_after_interrupted_ingest(self):
         with tempfile.TemporaryDirectory() as td:
