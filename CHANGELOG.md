@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Made source inventory and ZIP ordering platform-independent after the first remote CI run exposed Windows/Linux path-order differences.
 - Fixed a Windows corpus-lock initialization race: lock acquisition no longer writes a byte before obtaining the lock. Concurrent duplicate-ID checks now cover eight fresh-file rounds.
 - Strengthened CI with pinned action SHAs, committed-manifest checks, a Windows native-demo rebuild, verified build artifacts, job timeouts and a required aggregate result.
 - Fixed Release output placement and tag/version matching; preserved byte-identified experiment files across Git checkouts.

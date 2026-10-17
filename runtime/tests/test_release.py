@@ -46,3 +46,16 @@ class SourceReleaseTests(unittest.TestCase):
             evidence.write_bytes(b'changed evidence\n')
             with self.assertRaisesRegex(ValueError, 'digest mismatch'):
                 RELEASE['verify'](source)
+
+    def test_mixed_case_paths_have_the_same_archive_order_on_every_platform(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source, _ = self.create_source(directory)
+            (source / 'README.md').write_bytes(b'Project\n')
+            (source / 'docs').mkdir()
+            (source / 'docs' / 'README.md').write_bytes(b'Documentation\n')
+            (source / 'docs' / 'alpha.md').write_bytes(b'Example\n')
+            archive_path = Path(directory) / 'source.zip'
+            RELEASE['build'](source, archive_path)
+            with zipfile.ZipFile(archive_path) as archive:
+                names = archive.namelist()
+            self.assertEqual(names, sorted(names))

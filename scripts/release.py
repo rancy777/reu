@@ -65,7 +65,9 @@ def tracked_files(root: Path) -> list[Path]:
         if not allowed:
             raise ValueError(f"Review unexpected binary/resource before packaging: {relative}")
         output.append(relative)
-    return sorted(output)
+    # Path ordering follows the host filesystem's case rules. Use portable
+    # POSIX strings so Windows and Linux emit identical manifest/ZIP order.
+    return sorted(output, key=lambda path: path.as_posix())
 
 
 def sha256(data: bytes) -> str:
@@ -165,7 +167,7 @@ def build(root: Path, archive: Path) -> dict:
     with zipfile.ZipFile(
         archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9
     ) as z:
-        for rel in sorted(files):
+        for rel in sorted(files, key=lambda path: path.as_posix()):
             payload = (root / rel).read_bytes()
             entry = zipfile.ZipInfo(f"{ARCHIVE_ROOT}/{rel.as_posix()}")
             entry.date_time = datetime.fromtimestamp(
