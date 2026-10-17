@@ -1,0 +1,165 @@
+schema_version: "1.1"
+selection_policy:
+  primary_key: "semantic_capability"
+  tie_breakers:
+    - officiality
+    - security_posture
+    - health
+    - compatibility
+    - read_only_support
+    - structured_output
+    - version_pin
+    - local_transport
+    - maintenance
+    - independent_evidence
+  prohibited:
+    - choose_provider_only_by_name
+    - assume_latest_is_best
+    - assume_same_native_tool_means_same_behavior
+    - count_wrappers_of_same_engine_as_independent_evidence
+    - enable_duplicate_gui_providers_without_a_test_reason
+  quarantine:
+    - "x64dbg.duty1g"
+
+bindings:
+  pe.triage:
+    preferred:
+      - "artifact.exec"
+      - "apkid.android-security-engineer"
+      - "die.lazy-importer"
+      - "remnux.mcp"
+      - "reversecore.ondrong"
+    fallbacks:
+      - "artifact.exec"
+
+  pe.static:
+    preferred:
+      - "ida.hexrays.official"
+      - "ghidra.lauriewired"
+      - "binaryninja.unichk"
+      - "radare2.official-project"
+      - "remnux.mcp"
+      - "reversecore.ondrong"
+      - "revula.president-xd"
+
+  pe.runtime:
+    preferred:
+      - "x64dbg.ouonet"
+      - "windbg.glslang"
+
+  pe.memory:
+    preferred:
+      - "x64dbg.ouonet"
+      - "windbg.glslang"
+      - "frida.rexd"
+
+  pe.reconstruct:
+    preferred:
+      - "x64dbg.ouonet"
+      - "windbg.glslang"
+      - "scylla-rs.mcp"
+      - "artifact.exec"
+
+  dotnet.metadata:
+    preferred:
+      - "ida.hexrays.official"
+      - "decompiler.ilspy.cervonwong"
+      - "ghidra.lauriewired"
+      - "artifact.exec"
+
+  dotnet.runtime:
+    preferred:
+      - "windbg.glslang"
+      - "ida.hexrays.official"
+      - "artifact.exec"
+
+  android.package:
+    preferred:
+      - "apkid.android-security-engineer"
+      - "apktool.zinja"
+      - "jadx.zinja"
+      - "android.mobsf.plur1bu5"
+      - "artifact.exec"
+
+  android.dex:
+    preferred:
+      - "jadx.zinja"
+      - "apktool.zinja"
+      - "apkid.android-security-engineer"
+      - "artifact.exec"
+
+  android.runtime:
+    preferred:
+      - "frida.rexd"
+      - "frida.cbxss"
+      - "android.mobsf.plur1bu5"
+      - "artifact.exec"
+
+  android.device:
+    preferred:
+      - "frida.cbxss"
+      - "android.mobsf.plur1bu5"
+      - "artifact.exec"
+
+  android.native:
+    preferred:
+      - "ida.hexrays.official"
+      - "ghidra.lauriewired"
+      - "binaryninja.unichk"
+      - "radare2.official-project"
+      - "unidbg.project"
+
+  native.elf:
+    preferred:
+      - "ida.hexrays.official"
+      - "ghidra.lauriewired"
+      - "binaryninja.unichk"
+      - "radare2.official-project"
+      - "reversecore.ondrong"
+      - "revula.president-xd"
+
+  decompiler:
+    preferred:
+      - "ida.hexrays.official"
+      - "ghidra.lauriewired"
+      - "binaryninja.unichk"
+      - "jadx.zinja"
+      - "decompiler.ilspy.cervonwong"
+      - "radare2.official-project"
+
+  emulation:
+    preferred:
+      - "unidbg.project"
+      - "angr.sandbornm"
+      - "artifact.exec"
+
+  strings:
+    preferred:
+      - "remnux.mcp"
+      - "reversecore.ondrong"
+      - "artifact.exec"
+
+  capability-detection:
+    preferred:
+      - "remnux.mcp"
+      - "reversecore.ondrong"
+      - "revula.president-xd"
+      - "artifact.exec"
+
+  rule-scanning:
+    preferred:
+      - "apkid.android-security-engineer"
+      - "reversecore.ondrong"
+      - "revula.president-xd"
+      - "artifact.exec"
+
+  artifact.fs:
+    preferred:
+      - "filesystem.official"
+      - "remnux.mcp"
+
+  artifact.exec:
+    preferred:
+      - "shell.host"
+      - "remnux.mcp"
+      - "reversecore.ondrong"

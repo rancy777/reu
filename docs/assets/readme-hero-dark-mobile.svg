@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="220" viewBox="0 0 640 220" role="img" aria-labelledby="title desc">
+<title id="title">REU — Reverse Engineering &amp; Unpacking</title>
+<desc id="desc">Reverse engineering, with evidence. Mobile layout.</desc>
+<g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif">
+<rect x="1" y="1" width="638" height="218" rx="16" fill="#10151e" stroke="#303a4d"/>
+<text x="30" y="120" fill="#edf2f8" font-size="100" font-weight="800">REU.</text><text x="316" y="76" fill="#edf2f8" font-size="23" font-weight="650">Reverse engineering,</text><text x="316" y="111" fill="#edf2f8" font-size="23" font-weight="650">with evidence.</text><path d="M30 150h580" stroke="#303a4d"/>
+<text x="30" y="188" fill="#fe785c" font-size="20" font-weight="600">IDENTIFY  /  INVESTIGATE  /  VERIFY</text>
+</g>
+</svg>

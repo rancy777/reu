@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "negative_test": "Changed one byte of a recovered native XOR immediate in a temporary DLL; acceptance rejected it under python -O",
+  "verifier_exit_code": 1,
+  "rejection": {
+    "result": "FAIL",
+    "error": "Recovered native behavior mismatch at input 0"
+  }
+}

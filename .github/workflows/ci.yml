@@ -1,0 +1,157 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUTF8: "1"
+
+jobs:
+  test:
+    timeout-minutes: 15
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install test dependencies
+        run: python -m pip install -e '.[test]'
+      - name: Run tests
+        run: python -m pytest -q runtime/tests -ra
+      - name: Strict offline regression gate
+        run: re-skill regress --strict --file corpus/regression/automated.jsonl
+      - name: Compile Python
+        run: python -m compileall -q runtime/re_skill
+
+  mcp-client:
+    timeout-minutes: 10
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install MCP client dependency
+        run: python -m pip install -e '.[mcp,test]'
+      - name: Run MCP-facing tests
+        run: python -m pytest -q runtime/tests/test_mcp_client_fake_sdk.py runtime/tests/test_v14_sse_facade.py runtime/tests/test_mcp_integration.py -ra
+
+  installation:
+    timeout-minutes: 15
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+      - name: Build wheel
+        run: |
+          python -m pip install build
+          python -m build --wheel --outdir "${{ runner.temp }}/reu-wheels"
+      - name: Install wheel in a clean environment and exercise CLI
+        run: python scripts/check_install.py --wheel-dir "${{ runner.temp }}/reu-wheels"
+      - name: Preserve verified wheel
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: wheel-${{ matrix.os }}
+          path: ${{ runner.temp }}/reu-wheels/*.whl
+          if-no-files-found: error
+          retention-days: 14
+
+  release-integrity:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - name: Verify committed manifest before rebuilding
+        run: python scripts/release.py --root . --verify
+      - name: Build deterministic source archive outside checkout
+        run: |
+          python scripts/release.py --root . --zip "${{ runner.temp }}/reu-source/reverse-engineering-unpacking.zip"
+          python scripts/release.py --root . --verify --zip "${{ runner.temp }}/reu-source/reverse-engineering-unpacking.zip"
+          git diff --exit-code
+      - name: Preserve verified source archive and checksum
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: verified-source
+          path: ${{ runner.temp }}/reu-source/*
+          if-no-files-found: error
+          retention-days: 14
+
+  native-demo:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+      - name: Rebuild public IR and validate isolated EXE
+        run: .\examples\vmprotect-3.8.4-virtualized-x64\source\rebuild_demo.ps1 -OutputDirectory "${{ runner.temp }}\reu-native-demo"
+      - name: Preserve native demo evidence
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: native-demo-evidence
+          path: ${{ runner.temp }}/reu-native-demo/evidence/*.json
+          if-no-files-found: error
+          retention-days: 14
+
+  passed:
+    name: CI passed
+    if: ${{ always() }}
+    needs: [test, mcp-client, installation, release-integrity, native-demo]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require every job to succeed
+        env:
+          RESULTS: ${{ toJSON(needs) }}
+        run: |
+          python - <<'PY'
+          import json, os
+          results = json.loads(os.environ["RESULTS"])
+          failures = {name: job["result"] for name, job in results.items() if job["result"] != "success"}
+          if failures:
+              raise SystemExit(f"CI jobs did not pass: {failures}")
+          print("All CI jobs passed.")
+          PY

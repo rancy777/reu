@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Protector Family Research Index",
+  "type": "object",
+  "required": [
+    "family_id",
+    "name",
+    "platform",
+    "mechanisms",
+    "version_scope",
+    "status",
+    "evidence_class",
+    "sources",
+    "last_reviewed"
+  ],
+  "properties": {
+    "family_id": {
+      "type": "string",
+      "minLength": 2
+    },
+    "name": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "mechanisms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "version_scope": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "researched",
+        "historical",
+        "needs-verification"
+      ]
+    },
+    "evidence_class": {
+      "const": "family-index-not-sample-evidence"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "last_reviewed": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "string"
+    },
+    "confidence": {
+      "enum": [
+        "High",
+        "Medium",
+        "Low",
+        "Unknown"
+      ]
+    }
+  }
+}

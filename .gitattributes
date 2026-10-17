@@ -1,0 +1,13 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+
+# Case sources, traces and recovered IR have recorded byte identities.
+# Preserve their exact bytes on every platform; keep textual diffs enabled.
+examples/** -text whitespace=cr-at-eol
+# Whitespace inside recorded/generated evidence is part of the artifact.
+examples/**/evidence/** -whitespace
+examples/**/recovered/** -whitespace

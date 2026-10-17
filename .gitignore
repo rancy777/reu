@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Build artifacts
+build/
+dist/
+*.whl
+*.zip
+
+# Local runtime / corpus artifacts
+runtime-artifacts/
+corpus/runtime-artifacts/
+/providers.json
+/discovery.json
+*.lock
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local VMProtect SDK inputs
+/Protector/

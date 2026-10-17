@@ -1,0 +1,11 @@
+{
+  "status": "EXPRESSION_RECOVERED_PENDING_VALIDATION",
+  "instructions": 21849,
+  "input": 42,
+  "output": 2807516844,
+  "concrete_syncs": 2579,
+  "seconds": 2.125,
+  "trace_sha256": "4d1cf728cefaaaeca327b5a13177d64bfd3835a96fa4c27045658dbf6c4b455a",
+  "protected_sha256": "54dc992a7682fc62e15c595f44b2d58a247fc75a60d454412c50222f75c28270",
+  "path_constraints": 0
+}

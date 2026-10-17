@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MCP Observation",
+  "type": "object",
+  "required": [
+    "observation_id",
+    "provider_id",
+    "operation",
+    "status",
+    "timestamp"
+  ],
+  "properties": {
+    "observation_id": {
+      "type": "string"
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "server_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "mcp_tool": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "operation": {
+      "type": "string"
+    },
+    "native_tool": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provider_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "native_tool_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "representation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "host": {
+      "type": "object"
+    },
+    "inputs": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "success",
+        "partial",
+        "error",
+        "timeout",
+        "cancelled",
+        "unknown"
+      ]
+    },
+    "side_effects": {
+      "type": "string",
+      "enum": [
+        "read",
+        "observe",
+        "execute",
+        "mutate",
+        "destructive"
+      ]
+    },
+    "output_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "raw_output_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "completeness": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "truncated",
+        "paginated",
+        "sampled",
+        "error",
+        "unknown"
+      ]
+    },
+    "observation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "derived_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "timestamp": {
+      "type": "string"
+    }
+  }
+}

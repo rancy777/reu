@@ -1,0 +1,112 @@
+{
+  "version": "1.0",
+  "verified_on": "2026-10-16",
+  "policy": "Exact tool names verified in upstream docs, but inputs must ALWAYS be learned via MCP tools/list at runtime. Profiles do not authorize execution.",
+  "profiles": [
+    {
+      "provider_id": "jadx.zinja",
+      "repository": "https://github.com/zinja-coder/jadx-ai-mcp/blob/jadx-ai/docs/api-reference.md",
+      "mapping": {
+        "android.class-source": [
+          "get_class_source"
+        ],
+        "android.method-source": [
+          "get_method_by_name"
+        ],
+        "android.smali": [
+          "get_smali_of_class"
+        ],
+        "android.manifest": [
+          "get_android_manifest"
+        ],
+        "android.search-classes": [
+          "search_classes_by_keyword"
+        ],
+        "android.classes": [
+          "get_all_classes"
+        ]
+      }
+    },
+    {
+      "provider_id": "ghidra.lauriewired",
+      "repository": "https://github.com/LaurieWired/GhidraMCP",
+      "mapping": {
+        "static.functions": [
+          "list_functions"
+        ],
+        "decompiler": [
+          "decompile_function"
+        ],
+        "static.imports": [
+          "list_imports"
+        ],
+        "static.exports": [
+          "list_exports"
+        ]
+      }
+    },
+    {
+      "provider_id": "frida.rexd",
+      "repository": "https://github.com/majimboo/rexd-frida-mcp",
+      "mapping": {
+        "runtime.modules": [
+          "listModules"
+        ],
+        "runtime.memory-read": [
+          "readMemory"
+        ],
+        "runtime.memory-search": [
+          "scanMemory"
+        ],
+        "runtime.attach": [
+          "attach"
+        ],
+        "runtime.memory-write": [
+          "writeMemory"
+        ],
+        "runtime.hooks": [
+          "startHook"
+        ]
+      }
+    },
+    {
+      "provider_id": "apktool.zinja",
+      "repository": "https://github.com/zinja-coder/apktool-mcp-server",
+      "mapping": {
+        "android.manifest": [
+          "get_manifest"
+        ],
+        "android.smali": [
+          "get_smali_file"
+        ],
+        "android.resources": [
+          "get_resource_file"
+        ],
+        "android.decode-to-workspace": [
+          "decode_apk"
+        ]
+      }
+    },
+    {
+      "provider_id": "remnux.mcp",
+      "repository": "https://github.com/REMnux/remnux-mcp-server",
+      "mapping": {
+        "target.identify": [
+          "get_file_info"
+        ],
+        "tool.suggest": [
+          "suggest_tools"
+        ],
+        "tool.help": [
+          "get_tool_help"
+        ],
+        "analysis.external": [
+          "analyze_file"
+        ],
+        "analysis.shell": [
+          "run_tool"
+        ]
+      }
+    }
+  ]
+}

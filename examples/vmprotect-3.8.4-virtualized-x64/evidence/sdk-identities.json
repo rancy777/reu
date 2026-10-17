@@ -1,0 +1,27 @@
+[
+  {
+    "file": "VMProtectSDK.h",
+    "bytes": 3476,
+    "sha256": "a58e33e21b3e9ff7392f38b67967efb173ab42ea5b46b2d24e4803c7aff0e68f"
+  },
+  {
+    "file": "VMProtectSDK32.dll",
+    "bytes": 100864,
+    "sha256": "51dd60c5da34ad950ccaf3a76d067e93d3a519ed3236d605ad1714b23e767acb"
+  },
+  {
+    "file": "VMProtectSDK32.lib",
+    "bytes": 7714,
+    "sha256": "83e78efc8ecb95cd6ae3cb6668f91b9313b7fca5e92b3c1174f411c32d3203e7"
+  },
+  {
+    "file": "VMProtectSDK64.dll",
+    "bytes": 119296,
+    "sha256": "889553cce491767b38df153b567b6da682709925dd7a1c23f12c6d53a9fb18c2"
+  },
+  {
+    "file": "VMProtectSDK64.lib",
+    "bytes": 7372,
+    "sha256": "b5f4824b535465250967e4a994e7faccdfed88d20b6fd5fd49e35e6cb3e9390c"
+  }
+]

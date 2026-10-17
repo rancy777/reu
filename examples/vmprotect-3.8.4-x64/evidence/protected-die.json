@@ -1,0 +1,22 @@
+{
+    "detects": [
+        {
+            "filetype": "PE64",
+            "info": "",
+            "offset": "0",
+            "parentfilepart": "Header",
+            "size": "12616192",
+            "values": [
+                {
+                    "info": "packed",
+                    "name": "VMProtect",
+                    "string": "Protector: VMProtect[packed]",
+                    "type": "protector",
+                    "version": ""
+                }
+            ]
+        }
+    ]
+}
+
+

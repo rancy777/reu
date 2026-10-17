@@ -1,0 +1,92 @@
+{
+  "providers": [
+    {
+      "id": "ida.hexrays.official",
+      "transport": "stdio",
+      "command": "REPLACE_WITH_PROVIDER_COMMAND",
+      "args": [],
+      "env": {},
+      "cwd": null,
+      "enabled": true,
+      "allow_remote": false,
+      "headers": {}
+    },
+    {
+      "id": "x64dbg.ouonet",
+      "transport": "stdio",
+      "command": "REPLACE_WITH_PROVIDER_COMMAND",
+      "args": [],
+      "env": {},
+      "cwd": null,
+      "enabled": true,
+      "allow_remote": false,
+      "headers": {}
+    },
+    {
+      "id": "windbg.glslang",
+      "transport": "stdio",
+      "command": "REPLACE_WITH_PROVIDER_COMMAND",
+      "args": [],
+      "env": {},
+      "cwd": null,
+      "enabled": true,
+      "allow_remote": false,
+      "headers": {}
+    },
+    {
+      "id": "radare2.official-project",
+      "transport": "stdio",
+      "command": "REPLACE_WITH_PROVIDER_COMMAND",
+      "args": [],
+      "env": {},
+      "cwd": null,
+      "enabled": true,
+      "allow_remote": false,
+      "headers": {}
+    },
+    {
+      "id": "frida.rexd",
+      "transport": "stdio",
+      "command": "REPLACE_WITH_PROVIDER_COMMAND",
+      "args": [],
+      "env": {},
+      "cwd": null,
+      "enabled": true,
+      "allow_remote": false,
+      "headers": {}
+    },
+    {
+      "id": "jadx.zinja",
+      "transport": "stdio",
+      "command": "REPLACE_WITH_PROVIDER_COMMAND",
+      "args": [],
+      "env": {},
+      "cwd": null,
+      "enabled": true,
+      "allow_remote": false,
+      "headers": {}
+    },
+    {
+      "id": "apktool.zinja",
+      "transport": "stdio",
+      "command": "REPLACE_WITH_PROVIDER_COMMAND",
+      "args": [],
+      "env": {},
+      "cwd": null,
+      "enabled": true,
+      "allow_remote": false,
+      "headers": {}
+    },
+    {
+      "id": "apkid.android-security-engineer",
+      "transport": "stdio",
+      "command": "REPLACE_WITH_PROVIDER_COMMAND",
+      "args": [],
+      "env": {},
+      "cwd": null,
+      "enabled": true,
+      "allow_remote": false,
+      "headers": {}
+    }
+  ]
+}

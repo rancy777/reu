@@ -1,0 +1,39 @@
+{
+  "comment": "Disabled examples. Install/pin upstream provider FIRST, review its repo, then edit enabled:true explicitly.",
+  "providers": [
+    {
+      "provider_id": "ida.hexrays.official",
+      "transport": "stdio",
+      "command": "uvx",
+      "args": ["--exclude-newer=1s", "ida-mcp", "stdio", "--agent=my-agent"],
+      "enabled": false,
+      "env": {},
+      "metadata": {"upstream": "https://github.com/HexRaysSA/ida-mcp", "note": "uvx may download packages when explicitly launched. Pin an approved release in production."}
+    },
+    {
+      "provider_id": "radare2.official-project",
+      "transport": "stdio",
+      "command": "r2pm",
+      "args": ["-r", "r2mcp"],
+      "enabled": false,
+      "env": {},
+      "metadata": {"upstream": "https://github.com/radareorg/radare2-mcp"}
+    },
+    {
+      "provider_id": "jadx.zinja",
+      "transport": "stdio",
+      "command": "jadx_mcp_server",
+      "args": [],
+      "enabled": false,
+      "env": {},
+      "metadata": {"upstream": "https://github.com/zinja-coder/jadx-mcp-server", "note": "Needs JADX GUI plugin and Python server installation."}
+    },
+    {
+      "provider_id": "unidbg.project",
+      "transport": "sse",
+      "url": "http://127.0.0.1:9239/sse",
+      "enabled": false,
+      "metadata": {"upstream": "https://github.com/zhkl0228/unidbg", "note": "Legacy loopback SSE only. Unidbg debugger must be paused and its MCP started manually; official MCP SDK optional dependency is required."}
+    }
+  ]
+}

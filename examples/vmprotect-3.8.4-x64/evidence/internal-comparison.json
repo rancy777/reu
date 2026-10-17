@@ -1,0 +1,175 @@
+{
+  "captured": "2026-10-17",
+  "tool": "DIE 3.21",
+  "capture": "Unedited native window JPEG captures; read-only static inspection of saved artifacts; not live debugger captures",
+  "artifacts": [
+    {
+      "stage": "original",
+      "sha256": "e9ee846be5acede1ef04cf04800eff1fd54a5bf99f855045a149138b1e98fdfd",
+      "bytes": 4608,
+      "entry_rva": "0x11f0",
+      "image_size": "0x4000",
+      "sections": [
+        ".text",
+        ".rdata",
+        ".pdata"
+      ],
+      "import_descriptors": [
+        {
+          "dll": "KERNEL32.dll",
+          "functions": [
+            "GetCommandLineA",
+            "WriteFile",
+            "ExitProcess",
+            "GetStdHandle"
+          ]
+        },
+        {
+          "dll": "USER32.dll",
+          "functions": [
+            "MessageBoxW"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "protected",
+      "sha256": "0a53387dd751b73366c5153fdcc7b094aa7db7c4d5f0ccfab300c61b142f4178",
+      "bytes": 12616192,
+      "entry_rva": "0x7b51b1",
+      "image_size": "0x1323000",
+      "sections": [
+        ".text",
+        ".rdata",
+        ".pdata",
+        ".@*1",
+        ".=9-",
+        ".cYj",
+        ".reloc"
+      ],
+      "import_descriptors": [
+        {
+          "dll": "KERNEL32.dll",
+          "functions": [
+            "GetCommandLineA"
+          ]
+        },
+        {
+          "dll": "USER32.dll",
+          "functions": [
+            "MessageBoxW"
+          ]
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "functions": [
+            "GetSystemTimeAsFileTime"
+          ]
+        },
+        {
+          "dll": "KERNEL32.dll",
+          "functions": [
+            "HeapAlloc",
+            "HeapFree",
+            "ExitProcess",
+            "GetModuleHandleA",
+            "LoadLibraryA",
+            "GetProcAddress"
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "unpacked",
+      "sha256": "e667de6fbb997d8f957f8da2c322e14cb742faa256d463468f06a60d79be13a0",
+      "bytes": 5120,
+      "entry_rva": "0x11f0",
+      "image_size": "0x5000",
+      "sections": [
+        ".text",
+        ".rdata",
+        ".pdata",
+        ".idata"
+      ],
+      "import_descriptors": [
+        {
+          "dll": "KERNEL32.dll",
+          "functions": [
+            "ExitProcess",
+            "GetCommandLineA",
+            "GetStdHandle",
+            "WriteFile"
+          ]
+        },
+        {
+          "dll": "USER32.dll",
+          "functions": [
+            "MessageBoxW"
+          ]
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "09-original-overview.jpg",
+      "sha256": "914624fde6a7e910f3f6e94f628efddb2bb89a8d6a05aa91db1f641680739c94",
+      "bytes": 124817
+    },
+    {
+      "file": "10-protected-overview.jpg",
+      "sha256": "b15fa84590141627c1b2fd3af470e9fe002715f5211b9aa3fc64a6b0806b6617",
+      "bytes": 125379
+    },
+    {
+      "file": "11-unpacked-overview.jpg",
+      "sha256": "87643d15f37898ce74396df638451fd922e722f34ba714c71d1733d5160232a7",
+      "bytes": 111715
+    },
+    {
+      "file": "12-original-sections.jpg",
+      "sha256": "20404c88a55e13f88884428c912a07330fa03b66ee2482b57296d13874e96ff4",
+      "bytes": 194620
+    },
+    {
+      "file": "13-protected-sections.jpg",
+      "sha256": "12665587bc29d61b954d44e5365fe3a147393e721acffdd636866218bf2ee7aa",
+      "bytes": 245263
+    },
+    {
+      "file": "14-unpacked-sections.jpg",
+      "sha256": "440c3ccd5cfd138d094f4eee816cc72472ebe1651d38e66c70eaf32ab59796df",
+      "bytes": 201750
+    },
+    {
+      "file": "15-original-imports.jpg",
+      "sha256": "47f08f03954dd15641cde9c34d63afb68b8241a1172ab7410acaca79155c862b",
+      "bytes": 139089
+    },
+    {
+      "file": "16-protected-imports.jpg",
+      "sha256": "3fa18056dbc45edc5b8e3827c4e279c8b5edd858f975ef1757da2dc19b70b6b8",
+      "bytes": 149674
+    },
+    {
+      "file": "17-unpacked-imports.jpg",
+      "sha256": "2d10288840135e43bc494d33042b578249088a83f692e41126b44a51adfa1b5b",
+      "bytes": 139822
+    },
+    {
+      "file": "18-original-entrypoint.jpg",
+      "sha256": "5d892be11146e0a705c55630851fc907884d1337b3911f8ecb543a3b6479b5e5",
+      "bytes": 165679
+    },
+    {
+      "file": "19-protected-entrypoint.jpg",
+      "sha256": "327e2658d8b699fa5ec57c46d855f6845598e19d24e863a77696b641373566e3",
+      "bytes": 260550
+    },
+    {
+      "file": "20-unpacked-entrypoint.jpg",
+      "sha256": "348594e95e1b17326012fb1ec29cd00011337ea61817781430a99698f48f7362",
+      "bytes": 165868
+    }
+  ]
+}

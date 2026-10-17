@@ -1,0 +1,19 @@
+{
+  "servers": [
+    {
+      "id": "ida.hexrays.official",
+      "server_name": "ida-mcp",
+      "server_version": "resolved-at-runtime",
+      "protocol_version": "resolved-at-runtime",
+      "capabilities": ["pe.static", "decompiler"],
+      "tools": [
+        {
+          "name": "replace-with-discovered-tool",
+          "description": "Use the exact live MCP tool description.",
+          "input_schema": {"type": "object"},
+          "annotations": {}
+        }
+      ]
+    }
+  ]
+}

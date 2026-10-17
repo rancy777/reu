@@ -1,0 +1,22 @@
+{
+    "detects": [
+        {
+            "filetype": "PE64",
+            "info": "",
+            "offset": "0",
+            "parentfilepart": "Header",
+            "size": "5120",
+            "values": [
+                {
+                    "info": "",
+                    "name": "Unknown",
+                    "string": "Unknown: Unknown",
+                    "type": "Unknown",
+                    "version": ""
+                }
+            ]
+        }
+    ]
+}
+
+

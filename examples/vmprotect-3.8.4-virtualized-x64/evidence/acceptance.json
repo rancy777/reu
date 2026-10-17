@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "checks": {
+    "native_values": 100008,
+    "protected_differential_values": 128,
+    "native_instructions": 53,
+    "dll_imports": 0,
+    "vm_calls": 0,
+    "isolated_exe_checks": 45
+  },
+  "artifacts": {
+    "reu-recovered.dll": {
+      "sha256": "a0dd796575fdb360bef477f2a3c5c3eea2d2ae8aa1313ee71075067d04053c86",
+      "bytes": 2048
+    },
+    "reu-recovered.exe": {
+      "sha256": "fb3ab1087a61be783e4f4055828908acbdeb08413500b348a534dcb174b3d616",
+      "bytes": 4608
+    },
+    "reu-challenge.virtualized.exe": {
+      "sha256": "54dc992a7682fc62e15c595f44b2d58a247fc75a60d454412c50222f75c28270",
+      "bytes": 2327552
+    }
+  },
+  "seconds": 4.73399999999674,
+  "scope": "One known pure uint32 function recovered from a real protected trace and compiled to native code; harness CLI source rebuilt separately. Sampling, not exhaustive proof."
+}

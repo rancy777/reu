@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset="1" stop-color="#0b1830"/></linearGradient>
+  <linearGradient id="core" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+  <linearGradient id="data" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14532d"/><stop offset="1" stop-color="#166534"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity=".35"/></filter>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#67e8f9"/></marker>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<g opacity=".12" stroke="#38bdf8"><path d="M0 100H1600M0 200H1600M0 300H1600M0 400H1600M0 500H1600M0 600H1600M0 700H1600M0 800H1600"/><path d="M100 0V900M300 0V900M500 0V900M700 0V900M900 0V900M1100 0V900M1300 0V900M1500 0V900"/></g>
+<text x="80" y="70" fill="#e2e8f0" font-size="38" font-family="Inter,Arial,sans-serif" font-weight="700">Reverse Engineering &amp; Unpacking Agent — Architecture</text>
+<text x="80" y="108" fill="#94a3b8" font-size="20" font-family="Inter,Arial,sans-serif">Tool-agnostic orchestration • MCP integration • evidence-driven learning</text>
+
+<!-- Inputs -->
+<g filter="url(#shadow)">
+  <rect x="70" y="190" width="250" height="125" rx="18" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="350" y="190" width="250" height="125" rx="18" fill="#111827" stroke="#34d399" stroke-width="2"/>
+  <rect x="630" y="190" width="250" height="125" rx="18" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+  <rect x="910" y="190" width="250" height="125" rx="18" fill="#111827" stroke="#60a5fa" stroke-width="2"/>
+  <rect x="1190" y="190" width="340" height="125" rx="18" fill="#111827" stroke="#22d3ee" stroke-width="2"/>
+</g>
+<g font-family="Inter,Arial,sans-serif">
+<text x="195" y="232" text-anchor="middle" fill="#7dd3fc" font-size="24" font-weight="700">Windows / PE</text><text x="195" y="268" text-anchor="middle" fill="#cbd5e1" font-size="17">EXE • DLL • Native • .NET</text>
+<text x="475" y="232" text-anchor="middle" fill="#6ee7b7" font-size="24" font-weight="700">Android</text><text x="475" y="268" text-anchor="middle" fill="#cbd5e1" font-size="17">APK • AAB • DEX • SO</text>
+<text x="755" y="232" text-anchor="middle" fill="#c4b5fd" font-size="24" font-weight="700">Linux / ELF</text><text x="755" y="268" text-anchor="middle" fill="#cbd5e1" font-size="17">ELF • native runtimes</text>
+<text x="1035" y="232" text-anchor="middle" fill="#93c5fd" font-size="24" font-weight="700">.NET</text><text x="1035" y="268" text-anchor="middle" fill="#cbd5e1" font-size="17">IL • R2R • NativeAOT</text>
+<text x="1360" y="232" text-anchor="middle" fill="#67e8f9" font-size="24" font-weight="700">Evidence / User Artifacts</text><text x="1360" y="268" text-anchor="middle" fill="#cbd5e1" font-size="17">logs • screenshots • tool output</text>
+</g>
+
+<!-- Arrows -->
+<g stroke="#67e8f9" stroke-width="3" fill="none" marker-end="url(#arrow)">
+<path d="M195 315 C195 360 470 350 560 400"/>
+<path d="M475 315 C475 350 590 360 640 400"/>
+<path d="M755 315 C755 350 760 360 760 400"/>
+<path d="M1035 315 C1035 360 930 360 880 400"/>
+<path d="M1360 315 C1360 360 1020 350 960 400"/>
+</g>
+
+<!-- Core -->
+<g filter="url(#shadow)">
+<rect x="430" y="400" width="740" height="190" rx="28" fill="url(#core)" opacity=".95"/>
+<text x="800" y="450" text-anchor="middle" fill="white" font-size="31" font-family="Inter,Arial,sans-serif" font-weight="800">Reverse Engineering Agent Skill</text>
+<text x="800" y="485" text-anchor="middle" fill="#dbeafe" font-size="18" font-family="Inter,Arial,sans-serif">Triage → Hypothesis → Workflow → Experiment → Validation</text>
+<g fill="#eff6ff" font-family="Inter,Arial,sans-serif" font-size="16">
+<text x="520" y="530">• Target / platform classification</text><text x="790" y="530">• Protector / obfuscator reasoning</text><text x="1040" y="530">• Failure diagnosis</text>
+<text x="520" y="560">• Evidence &amp; provenance</text><text x="790" y="560">• Version-aware routing</text><text x="1040" y="560">• Safe tool selection</text>
+</g>
+</g>
+
+<!-- Tool plane -->
+<g filter="url(#shadow)">
+<rect x="70" y="650" width="680" height="160" rx="24" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+<text x="410" y="690" text-anchor="middle" fill="#7dd3fc" font-size="24" font-family="Inter,Arial,sans-serif" font-weight="700">MCP / Tool Plane</text>
+<text x="105" y="730" fill="#cbd5e1" font-size="17" font-family="Inter,Arial,sans-serif">IDA • Ghidra • x64dbg • WinDbg • Binary Ninja</text>
+<text x="105" y="758" fill="#cbd5e1" font-size="17" font-family="Inter,Arial,sans-serif">Frida • JADX • Apktool • Unidbg • radare2</text>
+<text x="105" y="786" fill="#94a3b8" font-size="15" font-family="Inter,Arial,sans-serif">Provider discovery • capability mapping • health checks • side-effect gates</text>
+</g>
+
+<!-- Knowledge plane -->
+<g filter="url(#shadow)">
+<rect x="830" y="650" width="700" height="160" rx="24" fill="#0f172a" stroke="#34d399" stroke-width="2"/>
+<text x="1180" y="690" text-anchor="middle" fill="#6ee7b7" font-size="24" font-family="Inter,Arial,sans-serif" font-weight="700">Knowledge Plane</text>
+<text x="865" y="730" fill="#cbd5e1" font-size="17" font-family="Inter,Arial,sans-serif">Protector Case Corpus • Runtime Compatibility Matrix</text>
+<text x="865" y="758" fill="#cbd5e1" font-size="17" font-family="Inter,Arial,sans-serif">Evidence Graph • Regression Corpus • Provenance</text>
+<text x="865" y="786" fill="#94a3b8" font-size="15" font-family="Inter,Arial,sans-serif">Observed facts are versioned; hypotheses remain hypotheses until validated</text>
+</g>
+
+<path d="M800 590 V640" stroke="#67e8f9" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="800" y="635" text-anchor="middle" fill="#94a3b8" font-size="14" font-family="Inter,Arial,sans-serif">normalized observations</text>
+</svg>

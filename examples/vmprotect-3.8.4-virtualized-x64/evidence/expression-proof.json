@@ -1,0 +1,6 @@
+{
+  "result": "unknown",
+  "seconds": 120.0460000000021,
+  "scope": "Recovered trace expression equals the independent seven-round uint32 specification for every 32-bit input, if UNSAT; this does not prove trace coverage for arbitrary programs",
+  "smt_sha256": "4e37b98f6f71560f612d0e7655d311bbf7aa7978bbb0d4048c83a62466a399bd"
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Document Version="2">
+    <Protection InputFileName="reu-challenge.exe" Options="332544" VMCodeSectionName=".???" VMComplexity="20" OutputFileName="D:\Reu\runtime-artifacts\vmp-3.8.4-x64-20261017\protected\reu-challenge.vmp.exe">
+        <Messages />
+        <Folders />
+        <Procedures />
+        <Objects />
+    </Protection>
+    <DLLBox>
+        <Folders />
+    </DLLBox>
+    <Script />
+    <LicenseManager />
+</Document>

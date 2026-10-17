@@ -1,0 +1,7 @@
+REU OEP HIT: pid=34076, base=00007FF7D43F0000, cip=00007FF7D43F11F0, size=0000000001323000
+REU API GetCommandLineA ret=00007FF7D43F11FE stack1=000000007915D44E stack2=0000000000000000
+REU API GetStdHandle ret=00007FF7D43F107A
+REU API WriteFile ret=00007FF7D43F1097 text="REU / VMProtect benchmark v1\r\n"
+REU API WriteFile ret=00007FF7D43F1097 text="FUNCTIONAL SELF-TEST: PASS (8/8)\r\n"
+REU API WriteFile ret=00007FF7D43F1097 text="A passing self-test does not prove unpacking or devirtualization.\r\n"
+REU API ExitProcess ret=00007FF7D43F13AD code=0

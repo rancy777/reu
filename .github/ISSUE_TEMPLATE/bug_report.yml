@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a reproducible defect in the Skill or runtime
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not upload secrets, proprietary binaries, or live malware samples.
+        Describe a synthetic or authorized reproduction instead.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "1.5.0"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python, architecture, MCP SDK/provider versions.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Minimal commands, sanitized logs, and expected/actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety / authorization
+      description: State whether the reproduction uses a synthetic, CTF, owned, or authorized target.
+    validations:
+      required: true

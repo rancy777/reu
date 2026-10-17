@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-17",
+  "source_directory": "D:\\Reu\\examples\\vmprotect-3.8.4-virtualized-x64",
+  "repository": null,
+  "branch": null,
+  "head": null,
+  "formal_remote_baseline": null,
+  "dirty": "unavailable: no .git",
+  "command": "powershell -NoProfile -File .\\examples\\vmprotect-3.8.4-virtualized-x64\\source\\rebuild_demo.ps1 -OutputDirectory \"D:\\Reu\\runtime-artifacts\\showcase demo 20261017\"",
+  "configuration": "Windows x64; Python 3.11 x64; llvmlite 0.50.0 / LLVM 22.1.0; MSVC x64 /O2 /Brepro; Windows SDK",
+  "script_sha256": "c749845b5687dd569eb68fbcddf099ab9867fca90128e204a2d0206ed053cdd1",
+  "output_directory": "D:\\Reu\\runtime-artifacts\\showcase demo 20261017",
+  "isolated_exe_behavior": {
+    "file": "D:\\Reu\\runtime-artifacts\\showcase demo 20261017\\isolated\\independent.exe",
+    "sha256": "fb3ab1087a61be783e4f4055828908acbdeb08413500b348a534dcb174b3d616",
+    "behavior": "PASS",
+    "passed": 45,
+    "total": 45,
+    "failed": [],
+    "scope": "Functional equivalence only. Unpacking and devirtualization require separate evidence."
+  },
+  "identities_match_recorded_recovery": true,
+  "existing_directory_rejected_without_overwriting": true,
+  "negative_test_exit_code": 1,
+  "build": {
+    "source": "D:\\Reu\\examples\\vmprotect-3.8.4-virtualized-x64",
+    "output": "D:\\Reu\\runtime-artifacts\\showcase demo 20261017",
+    "python": "D:\\Reu\\runtime-artifacts\\showcase demo 20261017\\.venv\\Scripts\\python.exe",
+    "ir_sha256": "c06524b6a9ac150b4338ab0e9c2f6b4424fa765cfca5fc220fdcbcd3a61a77ec",
+    "configuration": "Windows x64; Python 3.11; llvmlite 0.50.0; MSVC /O2 /Brepro; isolated EXE behavior checks",
+    "artifacts": [
+      {
+        "file": "D:\\Reu\\runtime-artifacts\\showcase demo 20261017\\recovered\\native\\reu-recovered.dll",
+        "sha256": "a0dd796575fdb360bef477f2a3c5c3eea2d2ae8aa1313ee71075067d04053c86"
+      },
+      {
+        "file": "D:\\Reu\\runtime-artifacts\\showcase demo 20261017\\recovered\\native\\reu-recovered.exe",
+        "sha256": "fb3ab1087a61be783e4f4055828908acbdeb08413500b348a534dcb174b3d616"
+      }
+    ],
+    "scope": "Rebuilds the published recovered IR and source-built CLI harness. Does not unpack or devirtualize a new target, replay a trace, or compare with the protected program."
+  },
+  "scope": "Published IR compilation plus separately source-built harness and 45 behavior checks. No new protected-program recovery, trace replay or 128-input differential run."
+}

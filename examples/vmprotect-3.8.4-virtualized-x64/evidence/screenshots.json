@@ -1,0 +1,50 @@
+[
+  {
+    "file": "01-vmp-virtualization-marker.jpg",
+    "sha256": "e10e15c4a5e30e98c0fb32fa041a353243e42e07336d8ac581f261fa18b3d3ab",
+    "bytes": 72520,
+    "capture": "Unedited native window capture"
+  },
+  {
+    "file": "02-vmp-isolated-options.jpg",
+    "sha256": "3af57f090c35e417f5b9a8bad13265cb97358b55e9de36e6f450a961293455aa",
+    "bytes": 139561,
+    "capture": "Unedited native window capture"
+  },
+  {
+    "file": "03-vmp-compile-complete.jpg",
+    "sha256": "a8e4ca2aedf4b2ea4dd9dcf59aaf7ba536959b5fc2ebe7d32d98cd8ae34420da",
+    "bytes": 14114,
+    "capture": "Unedited native window capture"
+  },
+  {
+    "file": "04-virtualized-pe-overview.jpg",
+    "sha256": "0990cba0cec88293d570fc1ccccc56ebc9409f5e36d36713434d5087ec3a0ca5",
+    "bytes": 126222,
+    "capture": "Unedited native window capture"
+  },
+  {
+    "file": "05-virtualized-function.jpg",
+    "sha256": "47a845b795333c6430ae87e377e410523ff96fe5be9a15506b3e22f51aa920a8",
+    "bytes": 162641,
+    "capture": "Unedited native window capture"
+  },
+  {
+    "file": "06-original-function.jpg",
+    "sha256": "3b8574e12ce0eb589ac66b5f5e270faf89923638888804db684d5bcefe6bd9f6",
+    "bytes": 166335,
+    "capture": "Unedited native window capture"
+  },
+  {
+    "file": "07-recovered-native-function.jpg",
+    "sha256": "bd484c300e485fca84b1d6736f769d885f1a4d86ddae7ede01ebef58ae95652d",
+    "bytes": 169530,
+    "capture": "Unedited native window capture"
+  },
+  {
+    "file": "08-recovered-harness-self-test.jpg",
+    "sha256": "ce97f525385f26cfb2aa0231a4b655a0abdc20865dc4c4a48a6b2174b9d0abe8",
+    "bytes": 16271,
+    "capture": "Unedited native window capture"
+  }
+]

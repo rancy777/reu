@@ -1,0 +1,424 @@
+schema_version: "1.0"
+registry_generated: "2026-10-16"
+policy:
+  version_pin: "required for reproducible cases; resolve latest only for discovery"
+  default_transport: "local stdio when supported"
+  remote_transport: "localhost/loopback preferred; authenticate non-loopback endpoints"
+  trust_rule: "provider identity and native-tool identity are separate facts"
+  verification_rule: "run health check before first analysis and after provider/tool upgrade"
+
+providers:
+
+  - id: "ida.hexrays.official"
+    name: "Hex-Rays IDA MCP"
+    class: "official"
+    status: "recommended"
+    repository: "https://github.com/HexRaysSA/ida-mcp"
+    docs: "https://docs.hex-rays.com/core/mcp"
+    current_release_observed: "20261008.0.1"
+    native_tool: "IDA Pro / IDA Home"
+    minimum_observed_requirement: "IDA 9.4+ with idalib and Python 3.11+"
+    transport: ["stdio", "streamable-http"]
+    capabilities:
+      - "pe.static"
+      - "dotnet.metadata"
+      - "dotnet.runtime"
+      - "android.native"
+      - "native.elf"
+      - "decompiler"
+      - "session.observe"
+      - "evidence.raw"
+    health:
+      - "discover tools"
+      - "open a harmless fixture"
+      - "read metadata"
+      - "verify architecture"
+      - "verify decompiler availability before using decompile operations"
+    notes:
+      - "Official provider; prefer over older third-party IDA MCPs."
+      - "The official README recommends disabling other IDA MCP servers to reduce agent confusion."
+      - "Pin the resolved provider release for regression cases."
+
+  - id: "x64dbg.ouonet"
+    name: "x64dbg MCP"
+    class: "community"
+    status: "candidate-recommended"
+    repository: "https://github.com/ouonet/x64dbg-mcp"
+    native_tool: "x64dbg/x32dbg"
+    requirements_observed: "Windows; Node.js 20+; Python 3.10+; x64dbg bridge/plugin"
+    transport: ["stdio", "streamable-http"]
+    capabilities:
+      - "pe.runtime"
+      - "pe.memory"
+      - "pe.reconstruct"
+      - "session.observe"
+    health:
+      - "ping provider"
+      - "verify x64dbg/x32dbg bridge"
+      - "verify target architecture"
+      - "load an authorized fixture"
+    notes:
+      - "Do not rely on provider name alone; verify the bridge and debugger architecture."
+      - "Keep an alternate x64dbg provider available because community implementations are rapidly changing."
+
+  - id: "x64dbg.duty1g"
+    name: "x64dbg-MCP Server"
+    class: "community"
+    status: "quarantined-by-default"
+    repository: "https://github.com/duty1g/x64dbg-mcp-server"
+    native_tool: "x64dbg/x32dbg"
+    transport: ["stdio", "streamable-http"]
+    capabilities:
+      - "pe.runtime"
+      - "pe.memory"
+      - "pe.reconstruct"
+      - "session.observe"
+    notes:
+      - "Alternate implementation; compare tool schemas and safety posture before use."
+
+  - id: "windbg.glslang"
+    name: "windbg-mcp"
+    class: "community"
+    status: "candidate-recommended"
+    repository: "https://github.com/glslang/windbg-mcp"
+    native_tool: "WinDbg/DbgEng"
+    transport: ["stdio", "http"]
+    capabilities:
+      - "pe.runtime"
+      - "pe.memory"
+      - "dotnet.runtime"
+      - "session.observe"
+    notes:
+      - "Supports live user-mode, kernel, crash-dump and TTD workflows according to its public documentation."
+      - "Verify local DbgEng and debugger-engine setup before analysis."
+
+  - id: "windbg.builtin"
+    name: "WinDbg built-in MCP feature"
+    class: "official-runtime-feature"
+    status: "partially-documented"
+    repository: "https://github.com/microsoft/WinDbg-Feedback"
+    native_tool: "WinDbg"
+    transport: ["provider-defined"]
+    capabilities:
+      - "pe.runtime"
+      - "pe.memory"
+      - "session.observe"
+    notes:
+      - "Public Microsoft feedback material documents MCP state/settings in WinDbg builds, while public user-facing documentation may lag implementation."
+      - "Treat exact tool names and security settings as live-discovery data, not static facts."
+
+  - id: "ghidra.lauriewired"
+    name: "Ghidra MCP"
+    class: "community"
+    status: "candidate"
+    repository: "https://github.com/LaurieWired/GhidraMCP"
+    native_tool: "Ghidra"
+    current_native_tool_release_observed: "12.1.4"
+    capabilities:
+      - "pe.static"
+      - "android.native"
+      - "native.elf"
+      - "decompiler"
+      - "session.observe"
+    notes:
+      - "Multiple Ghidra MCP implementations exist. Do not assume interoperability."
+      - "Pin a tested provider commit/release and a tested Ghidra version."
+
+  - id: "binaryninja.unichk"
+    name: "Binary Ninja MCP"
+    class: "community"
+    status: "candidate"
+    repository: "https://github.com/unichk/binaryninja-mcp"
+    native_tool: "Binary Ninja"
+    transport: ["provider-defined"]
+    capabilities:
+      - "pe.static"
+      - "android.native"
+      - "native.elf"
+      - "decompiler"
+      - "session.observe"
+    notes:
+      - "Verify plugin/client bridge compatibility before using write-capable features."
+
+  - id: "radare2.official-project"
+    name: "radare2 MCP"
+    class: "first-party-project"
+    status: "recommended"
+    repository: "https://github.com/radareorg/radare2-mcp"
+    current_release_observed: "1.8.8"
+    native_tool: "radare2"
+    transport: ["stdio", "http"]
+    capabilities:
+      - "pe.static"
+      - "android.native"
+      - "native.elf"
+      - "decompiler"
+      - "session.observe"
+    notes:
+      - "Supports readonly mode, sandbox lock, fine-grained tool configuration, and optional raw r2 command/r2js access."
+      - "Prefer readonly/restricted mode for initial triage."
+
+  - id: "frida.rexd"
+    name: "ReverseEngineerXD / rexd-frida-mcp"
+    class: "community"
+    status: "candidate"
+    repository: "https://github.com/majimboo/rexd-frida-mcp"
+    native_tool: "Frida"
+    requirements_observed: "Node.js 20+; Frida-compatible target"
+    transport: ["stdio"]
+    capabilities:
+      - "android.instrumentation"
+      - "android.runtime"
+      - "pe.memory"
+      - "session.observe"
+    notes:
+      - "Narrow typed runtime surface: attach/spawn/resume/detach, modules/ranges/symbols, memory, backtrace and hooks."
+      - "Prefer this style of narrow provider for routine observation."
+      - "Do not add bypass-oriented operations to the default capability set."
+
+  - id: "decompiler.ilspy.cervonwong"
+    name: "ILSpy MCP Server"
+    class: "community"
+    status: "candidate"
+    repository: "https://github.com/cervonwong/ILSpy-MCP"
+    native_tool: "ILSpy / ICSharpCode.Decompiler"
+    capabilities:
+      - "dotnet.metadata"
+      - "decompiler"
+      - "session.observe"
+    notes:
+      - "Beta/active-development project; inspect release status before use."
+      - "Read-only decompilation/structural analysis is useful as an independent .NET view."
+      - "Do not treat multiple ILSpy-based wrappers as independent evidence."
+
+  - id: "unidbg.project"
+    name: "Unidbg MCP"
+    class: "first-party-project"
+    status: "recommended-when-emulation-fits"
+    repository: "https://github.com/zhkl0228/unidbg"
+    native_tool: "Unidbg"
+    capabilities:
+      - "emulation"
+      - "android.native"
+      - "session.observe"
+    notes:
+      - "Project documentation describes MCP debugger support and custom MCP tools."
+      - "Emulation is not equivalent to a full Android device/ART environment."
+
+  - id: "jadx.zinja"
+    name: "JADX MCP Server"
+    class: "community"
+    status: "candidate"
+    repository: "https://github.com/zinja-coder/jadx-mcp-server"
+    native_tool: "JADX"
+    transport: ["stdio", "http"]
+    capabilities:
+      - "android.dex"
+      - "android.package"
+      - "decompiler"
+      - "session.observe"
+    notes:
+      - "Prefer headless/stdio for deterministic analysis when supported."
+      - "Pin provider release because tool signatures can change."
+
+  - id: "apktool.zinja"
+    name: "APKTool MCP Server"
+    class: "community"
+    status: "candidate"
+    repository: "https://github.com/zinja-coder/apktool-mcp-server"
+    native_tool: "Apktool"
+    transport: ["stdio"]
+    capabilities:
+      - "android.package"
+      - "android.dex"
+      - "evidence.raw"
+    notes:
+      - "Use primarily for decode/build/resource/smali workflows."
+      - "Do not infer runtime behavior from reconstructed resources alone."
+
+  - id: "android.mobile.optional"
+    name: "mobile-mcp"
+    class: "community-aggregator"
+    status: "optional"
+    repository: "https://github.com/catbyte-security/mobile-mcp"
+    native_tools: ["adb", "Frida"]
+    capabilities:
+      - "android.device"
+      - "android.instrumentation"
+      - "android.runtime"
+    notes:
+      - "Optional aggregator; use separate narrow providers when they give better evidence or provenance."
+
+  - id: "filesystem.official"
+    name: "MCP Filesystem"
+    class: "official-reference"
+    status: "recommended"
+    repository: "https://github.com/modelcontextprotocol/servers"
+    package: "@modelcontextprotocol/server-filesystem"
+    capabilities:
+      - "artifact.fs"
+      - "evidence.raw"
+    notes:
+      - "Restrict allowed roots to the analysis workspace."
+      - "Prefer read-only roots for original samples and separate writable roots for derived artifacts."
+
+  - id: "shell.host"
+    name: "Host Shell / Command MCP"
+    class: "generic"
+    status: "host-dependent"
+    native_tools: ["DIE", "PE-bear", "PEStudio", "FLOSS", "capa", "YARA", "Scylla", "PE-sieve", "pefile", "LIEF", "apktool", "JADX", "bundletool", "adb", "readelf", "objdump"]
+    capabilities:
+      - "artifact.exec"
+    notes:
+      - "The skill does not require a specific shell MCP implementation."
+      - "The host must provide an allowlisted/sandboxed command execution surface."
+      - "Record exact command, version, exit status, stdout/stderr and artifact hashes."
+
+  - id: "ghidra.pyghidra.sumtuusdeus"
+    name: "Ghidra MCP (PyGhidra headless)"
+    class: "community"
+    status: "experimental"
+    repository: "https://github.com/SumTuusDeus/ghidra-mcp"
+    native_tool: "Ghidra/PyGhidra"
+    capabilities:
+      - "pe.static"
+      - "android.native"
+      - "native.elf"
+      - "decompiler"
+      - "session.observe"
+    notes:
+      - "Headless PyGhidra implementation; require a pinned commit and regression fixture."
+
+  - id: "frida.cbxss"
+    name: "Frida MCP (mobile)"
+    class: "community"
+    status: "candidate"
+    repository: "https://github.com/cbxss/frida-mcp"
+    native_tool: "Frida"
+    capabilities:
+      - "android.device"
+      - "android.instrumentation"
+      - "android.runtime"
+    notes:
+      - "Mobile-focused; verify Frida server/device requirements and ABI/API compatibility."
+
+  - id: "apkid.android-security-engineer"
+    name: "APKiDSkills / APKiD MCP"
+    class: "community/AI-native distribution"
+    status: "recommended-for-android-triage"
+    repository: "https://github.com/android-security-engineer/APKiDSkills"
+    native_tool: "APKiD"
+    current_release_observed: "v4.0.0"
+    capabilities:
+      - "android.package"
+      - "android.dex"
+      - "android.native"
+      - "rule-scanning"
+      - "session.observe"
+    notes:
+      - "Structured AI CLI plus apkid-mcp; 365+ YARA rules are claimed by the project."
+      - "Detection remains a static hypothesis signal."
+
+  - id: "android.mobsf.plur1bu5"
+    name: "mobsf-mcp"
+    class: "community-aggregator"
+    status: "optional"
+    repository: "https://github.com/plur1bu5/mobsf-mcp"
+    native_tool: "MobSF"
+    capabilities:
+      - "android.package"
+      - "android.runtime"
+      - "android.device"
+      - "android.instrumentation"
+    notes:
+      - "Static/dynamic/Frida aggregator; use in an isolated emulator lab."
+
+  - id: "remnux.mcp"
+    name: "REMnux MCP Server"
+    class: "first-party-project"
+    status: "optional-recommended"
+    repository: "https://github.com/REMnux/remnux-mcp-server"
+    native_tool: "REMnux toolkit"
+    capabilities:
+      - "artifact.exec"
+      - "artifact.fs"
+      - "pe.triage"
+      - "pe.static"
+      - "strings"
+      - "capability-detection"
+      - "rule-scanning"
+    notes:
+      - "Designed for analysis inside REMnux Docker/VM isolation."
+
+  - id: "reversecore.ondrong"
+    name: "Reversecore MCP"
+    class: "community-aggregator"
+    status: "optional"
+    repository: "https://github.com/ondrong/reversecore_mcp"
+    native_tool: "Radare2/LIEF/Capstone/YARA/CAPA/angr and related engines"
+    capabilities:
+      - "pe.triage"
+      - "pe.static"
+      - "native.elf"
+      - "strings"
+      - "capability-detection"
+      - "rule-scanning"
+      - "emulation"
+      - "artifact.exec"
+    notes:
+      - "Do not count wrapped engines as independent evidence modalities."
+
+  - id: "revula.president-xd"
+    name: "revula"
+    class: "community-aggregator"
+    status: "optional"
+    repository: "https://github.com/president-xd/revula"
+    native_tool: "LIEF/Capstone/radare2/Ghidra/RetDec/FLOSS/CAPA/YARA and related engines"
+    capabilities:
+      - "pe.triage"
+      - "pe.static"
+      - "native.elf"
+      - "strings"
+      - "capability-detection"
+      - "rule-scanning"
+      - "decompiler"
+    notes:
+      - "Broad multi-backend provider; prefer direct upstream providers for high-confidence evidence."
+
+  - id: "angr.sandbornm"
+    name: "angr MCP"
+    class: "community"
+    status: "experimental"
+    repository: "https://github.com/sandbornm/angr_mcp"
+    native_tool: "angr/angr-management"
+    capabilities:
+      - "emulation"
+      - "pe.static"
+      - "native.elf"
+      - "decompiler"
+    notes:
+      - "Useful for symbolic execution/path exploration; experimental integration."
+
+  - id: "die.lazy-importer"
+    name: "D.I.E-MCP"
+    class: "community"
+    status: "optional"
+    repository: "https://github.com/lazy-importer/D.I.E-MCP"
+    native_tool: "Detect It Easy/diec"
+    capabilities:
+      - "pe.triage"
+      - "rule-scanning"
+    notes:
+      - "Thin wrapper around diec; use native diec through artifact.exec when possible."
+
+  - id: "scylla-rs.mcp"
+    name: "scylla-rs MCP"
+    class: "community"
+    status: "experimental"
+    repository: "https://github.com/NekoRem/scylla-rs"
+    native_tool: "Scylla-style PE reconstruction"
+    capabilities:
+      - "pe.reconstruct"
+      - "pe.memory"
+    notes:
+      - "Targets Proton/Wine process memory; not a drop-in replacement for native Windows Scylla."

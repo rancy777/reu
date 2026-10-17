@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="564" viewBox="0 0 1280 564" role="img" aria-labelledby="title desc">
+<title id="title">Route an Android investigation with re-skill</title>
+<desc id="desc">Actual CLI output, selected fields. Synthetic input declares an arm64 APK with dynamic DEX loading. The runtime selects android-triage, android-dex and android-dynamic-loading. Protection status remains Unknown.</desc>
+<rect x="1" y="1" width="1278" height="562" rx="16" fill="#10151e" stroke="#303a4d"/>
+<g font-family="Consolas,'Liberation Mono',monospace">
+<circle cx="28" cy="29" r="5" fill="#fe785c"/><circle cx="47" cy="29" r="5" fill="#e3ba70"/><circle cx="66" cy="29" r="5" fill="#8bbf99"/>
+<text x="92" y="34" fill="#a9b6c9" font-size="15">re-skill / route</text>
+<text x="1248" y="34" fill="#8190a7" text-anchor="end" font-size="13">OFFLINE · NO MCP SERVER REQUIRED</text>
+<path d="M1 58h1278" stroke="#303a4d"/>
+<text x="32" y="102" fill="#edf2f8" font-size="23"><tspan fill="#fe785c">$ </tspan>re-skill route --input runtime/examples/triage.sample.json</text>
+<path d="M1 130h1278" stroke="#303a4d"/>
+<text x="32" y="169" fill="#fe927c" font-size="15" letter-spacing="1.5">INPUT / SYNTHETIC METADATA</text>
+<text xml:space="preserve" x="32" y="213" fill="#d8e2f1" font-size="23">{</text>
+<text xml:space="preserve" x="32" y="245" fill="#d8e2f1" font-size="23">  <tspan fill="#9baecc">&quot;filename&quot;</tspan>: &quot;sample.apk&quot;,</text>
+<text xml:space="preserve" x="32" y="277" fill="#d8e2f1" font-size="23">  <tspan fill="#9baecc">&quot;format&quot;</tspan>: &quot;apk&quot;,</text>
+<text xml:space="preserve" x="32" y="309" fill="#d8e2f1" font-size="23">  <tspan fill="#9baecc">&quot;architecture&quot;</tspan>: &quot;arm64&quot;,</text>
+<text xml:space="preserve" x="32" y="341" fill="#d8e2f1" font-size="23">  <tspan fill="#9baecc">&quot;dynamic_dex&quot;</tspan>: <tspan fill="#f49b81">true</tspan></text>
+<text xml:space="preserve" x="32" y="373" fill="#d8e2f1" font-size="23">}</text>
+<path d="M476 152v350" stroke="#303a4d"/>
+<text x="516" y="169" fill="#9fd5b1" font-size="15" letter-spacing="1.5">OUTPUT / SELECTED JSON FIELDS</text>
+<text xml:space="preserve" x="516" y="213" fill="#d8e2f1" font-size="23">{</text>
+<text xml:space="preserve" x="516" y="241" fill="#d8e2f1" font-size="23">  <tspan fill="#9baecc">&quot;platform&quot;</tspan>: &quot;android&quot;,</text>
+<text xml:space="preserve" x="516" y="269" fill="#d8e2f1" font-size="23">  <tspan fill="#9baecc">&quot;architecture&quot;</tspan>: &quot;arm64&quot;,</text>
+<text xml:space="preserve" x="516" y="297" fill="#d8e2f1" font-size="23">  <tspan fill="#9baecc">&quot;workflows&quot;</tspan>: [</text>
+<text xml:space="preserve" x="516" y="325" fill="#d8e2f1" font-size="23">    &quot;android-triage&quot;,</text>
+<text xml:space="preserve" x="516" y="353" fill="#d8e2f1" font-size="23">    &quot;android-dex&quot;,</text>
+<text xml:space="preserve" x="516" y="381" fill="#d8e2f1" font-size="23">    &quot;android-dynamic-loading&quot;</text>
+<text xml:space="preserve" x="516" y="409" fill="#d8e2f1" font-size="23">  ],</text>
+<text xml:space="preserve" x="516" y="437" fill="#d8e2f1" font-size="23">  <tspan fill="#9baecc">&quot;protection_status&quot;</tspan>: <tspan fill="#f2bf65">&quot;Unknown&quot;</tspan></text>
+<text xml:space="preserve" x="516" y="465" fill="#d8e2f1" font-size="23">}</text>
+<path d="M32 504h1216" stroke="#303a4d"/>
+<text x="32" y="537" fill="#91a0b6" font-size="15">Metadata → platform-specific workflows. Protection stays Unknown until verified.</text>
+<text x="1248" y="537" text-anchor="end" fill="#fe927c" font-size="15">REU.</text>
+</g>
+</svg>

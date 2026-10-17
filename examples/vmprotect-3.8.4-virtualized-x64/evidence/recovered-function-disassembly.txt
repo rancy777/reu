@@ -1,0 +1,53 @@
+180001000 81f1b979379e             xor ecx, 0x9e3779b9
+180001006 4889c8                   mov rax, rcx
+180001009 48c1e020                 shl rax, 0x20
+18000100d 4809c8                   or rax, rcx
+180001010 48c1e81b                 shr rax, 0x1b
+180001014 69c86bcaeb85             imul ecx, eax, 0x85ebca6b
+18000101a 81c135aeb2c2             add ecx, 0xc2b2ae35
+180001020 48b80100000001000000     movabs rax, 0x100000001
+18000102a 488d90bc7c399f           lea rdx, [rax - 0x60c68344]
+180001031 4831ca                   xor rdx, rcx
+180001034 4889d1                   mov rcx, rdx
+180001037 48c1e120                 shl rcx, 0x20
+18000103b 4809d1                   or rcx, rdx
+18000103e 48c1e91b                 shr rcx, 0x1b
+180001042 69c99535147a             imul ecx, ecx, 0x7a143595
+180001048 81c1ca514d3d             add ecx, 0x3d4d51ca
+18000104e 4881f13e80c45f           xor rcx, 0x5fc4803e
+180001055 4889ca                   mov rdx, rcx
+180001058 48c1e220                 shl rdx, 0x20
+18000105c 4809ca                   or rdx, rcx
+18000105f 48c1ea1b                 shr rdx, 0x1b
+180001063 69ca9535147a             imul ecx, edx, 0x7a143595
+180001069 81c1ca514d3d             add ecx, 0x3d4d51ca
+18000106f 4881f13a7dc25e           xor rcx, 0x5ec27d3a
+180001076 4889ca                   mov rdx, rcx
+180001079 48c1e220                 shl rdx, 0x20
+18000107d 4809ca                   or rdx, rcx
+180001080 48c1ea1b                 shr rdx, 0x1b
+180001084 69ca9535147a             imul ecx, edx, 0x7a143595
+18000108a 81c1ca514d3d             add ecx, 0x3d4d51ca
+180001090 4881f1367ac05d           xor rcx, 0x5dc07a36
+180001097 4889ca                   mov rdx, rcx
+18000109a 48c1e220                 shl rdx, 0x20
+18000109e 4809ca                   or rdx, rcx
+1800010a1 48c1ea1b                 shr rdx, 0x1b
+1800010a5 69ca6bcaeb85             imul ecx, edx, 0x85ebca6b
+1800010ab 81c135aeb2c2             add ecx, 0xc2b2ae35
+1800010b1 4805cc8841a3             add rax, -0x5cbe7734
+1800010b7 4831c8                   xor rax, rcx
+1800010ba 4889c1                   mov rcx, rax
+1800010bd 48c1e120                 shl rcx, 0x20
+1800010c1 4809c1                   or rcx, rax
+1800010c4 48c1e91b                 shr rcx, 0x1b
+1800010c8 69c19535147a             imul eax, ecx, 0x7a143595
+1800010ce 05ca514d3d               add eax, 0x3d4d51ca
+1800010d3 48352e74bc5b             xor rax, 0x5bbc742e
+1800010d9 4889c1                   mov rcx, rax
+1800010dc 48c1e120                 shl rcx, 0x20
+1800010e0 4809c1                   or rcx, rax
+1800010e3 48c1e91b                 shr rcx, 0x1b
+1800010e7 69c16bcaeb85             imul eax, ecx, 0x85ebca6b
+1800010ed 0535aeb2c2               add eax, 0xc2b2ae35
+1800010f2 c3                       ret 

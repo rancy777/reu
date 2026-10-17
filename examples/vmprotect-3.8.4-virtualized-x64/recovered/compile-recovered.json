@@ -1,0 +1,11 @@
+{
+  "source_sha256": "c06524b6a9ac150b4338ab0e9c2f6b4424fa765cfca5fc220fdcbcd3a61a77ec",
+  "llvm_version": [
+    22,
+    1,
+    0
+  ],
+  "target": "x86_64-pc-windows-msvc",
+  "function": "ReuRecoveredTransform",
+  "input": "Recovered LLVM IR only; no C++ algorithm or original object is read"
+}

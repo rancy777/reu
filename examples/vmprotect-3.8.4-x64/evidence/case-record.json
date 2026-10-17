@@ -1,0 +1,139 @@
+{
+  "case_id": "vmp-3.8.4-x64-owned-loader-20261017",
+  "date": "2026-10-17",
+  "status": "PASS_THIS_SAMPLE",
+  "scope": "Owned C++ benchmark, default packing and import protection, no selected virtualized functions",
+  "method": "Known-OEP-assisted runtime dump plus case-specific manual import reconstruction",
+  "original_executable_used_as_reconstruction_input": false,
+  "known_reference_information_used": [
+    "original OEP RVA 0x11f0",
+    "three original section ranges",
+    "benchmark semantics for manual call-site analysis"
+  ],
+  "reconstruction_input": "Runtime memory of the protected process, exported through ScyllaDumpProcessW",
+  "tools": {
+    "vmprotect": "3.8.4 (GUI displayed)",
+    "x64dbg": "2026.05.27 headless",
+    "scylla": "x64 v0.9.8",
+    "die": "3.21",
+    "msvc": "19.44.35215",
+    "windows_sdk": "10.0.22621.0",
+    "lief": "1.0.0",
+    "pefile": "2024.8.26",
+    "capstone": "5.0.9",
+    "vmprotect_file_version": "3.8.4.1754"
+  },
+  "protection": {
+    "memory": true,
+    "imports": true,
+    "resources": true,
+    "compression": true,
+    "debugger_detection": false,
+    "vm_detection": false,
+    "selected_virtualized_functions": 0,
+    "project_options": 332544,
+    "vm_complexity_percent": 20
+  },
+  "artifacts": {
+    "source": {
+      "path": "source/challenge.cpp",
+      "bytes": 3094,
+      "sha256": "b562bdc83a035c61eeb52ec621f2a09e42dbbfeced61777120e07883cc8194c3"
+    },
+    "original": {
+      "path": "original/reu-challenge.exe",
+      "bytes": 4608,
+      "sha256": "e9ee846be5acede1ef04cf04800eff1fd54a5bf99f855045a149138b1e98fdfd"
+    },
+    "protected": {
+      "path": "protected/reu-challenge.vmp.exe",
+      "bytes": 12616192,
+      "sha256": "0a53387dd751b73366c5153fdcc7b094aa7db7c4d5f0ccfab300c61b142f4178"
+    },
+    "runtime_dump": {
+      "path": "unpacked/reu-challenge.dump.exe",
+      "bytes": 20044288,
+      "sha256": "a4cf5916dcf8493711f3f1497226b8a6e06c959d917f7ef70458a87d14ccd5c2"
+    },
+    "unpacked": {
+      "path": "unpacked/reu-challenge.unpacked.exe",
+      "bytes": 5120,
+      "sha256": "e667de6fbb997d8f957f8da2c322e14cb742faa256d463468f06a60d79be13a0"
+    },
+    "vmp_project": {
+      "path": "original/reu-challenge.exe.vmp",
+      "bytes": 484,
+      "sha256": "81e36d1fc34c512204d9da755f2a1963cc3f31d98917633f3efffd86a212e93f"
+    }
+  },
+  "validation": {
+    "behavior": {
+      "status": "PASS",
+      "passed": 45,
+      "total": 45,
+      "isolation": "Renamed reconstructed EXE alone in an empty temporary working directory"
+    },
+    "structure": {
+      "status": "PASS",
+      "passed": 14,
+      "total": 14,
+      "checks": {
+        "x64_pe": true,
+        "expected_sections_only": true,
+        "entrypoint_in_restored_text": true,
+        "compact_file_without_protector_regions": true,
+        "no_tls_loader_callbacks": true,
+        "no_relocation_reference_to_removed_regions": true,
+        "nx_preserved": true,
+        "checksum_valid": true,
+        "iat_directory_covers_all_import_slots": true,
+        "five_expected_os_imports": true,
+        "code_matches_runtime_dump_except_nine_import_repairs": true,
+        "read_only_data_preserved_from_dump": true,
+        "unwind_data_preserved_from_dump": true,
+        "all_external_calls_use_rebuilt_iat": true
+      }
+    },
+    "devirtualization": "NOT_TESTED",
+    "mcp_provider_compatibility": "NOT_TESTED",
+    "screenshot_capture": "Native tool-window captures; no compositing, AI generation or fabricated tool output",
+    "acceptance_negative_test": {
+      "tampered_checksum_rejected": true,
+      "exit_code": 1,
+      "optimized_python": true
+    }
+  },
+  "source_provenance": {
+    "directory": "D:/Reu",
+    "branch": null,
+    "head": null,
+    "formal_baseline": null,
+    "working_state": "Locally modified; no .git directory",
+    "commit": false,
+    "push": false,
+    "merge": false,
+    "deployment": false
+  },
+  "tool_fingerprints": {
+    "vmp": {
+      "sha256": "951f9bc353fb7e6b20d4ea6395ac000a22c264dda86ff09872225b8e062c5ac2",
+      "bytes": 31358888
+    },
+    "x64dbg": {
+      "sha256": "68d6afc2cc5a5bfd74a1b4066c0651254661355a0e384524cd1a8772adb95092",
+      "bytes": 207776
+    },
+    "x64dbg_headless": {
+      "sha256": "44ece2d8f81c1acbf4c85b45fe89e11875f0e1a0d2ba0c8c8c1a56bf85164268",
+      "bytes": 60416
+    },
+    "scylla": {
+      "sha256": "3a8d0d90b6f1e8e4ccb6c3c84e1755f07775562f4272177eb67ac2f0722af5fa",
+      "bytes": 552672
+    },
+    "diec": {
+      "sha256": "dda171a904f6dc3a2c414e99e9d718c8d7500bc26c3dcdc1a72ec0e7d718cfe7",
+      "bytes": 3187712
+    }
+  }
+}

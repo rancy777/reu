@@ -1,0 +1,10 @@
+{
+  "native_checks": 100008,
+  "native_result": "PASS",
+  "protected_differential_checks": 128,
+  "protected_result": "PASS",
+  "seconds": 4.796999999991385,
+  "dll_sha256": "a0dd796575fdb360bef477f2a3c5c3eea2d2ae8aa1313ee71075067d04053c86",
+  "protected_sha256": "54dc992a7682fc62e15c595f44b2d58a247fc75a60d454412c50222f75c28270",
+  "scope": "Deterministic random and boundary sampling; not exhaustive native execution"
+}

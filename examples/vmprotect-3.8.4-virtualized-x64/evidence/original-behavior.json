@@ -1,0 +1,9 @@
+{
+  "file": "D:\\Reu\\runtime-artifacts\\vmp-3.8.4-virtualized-x64-20261017\\original\\reu-challenge.exe",
+  "sha256": "b3788d54a7b08ec1680204a93c5cff08c2c0fc24f828fbdce45b385ce00b916e",
+  "behavior": "PASS",
+  "passed": 45,
+  "total": 45,
+  "failed": [],
+  "scope": "Functional equivalence only. Unpacking and devirtualization require separate evidence."
+}

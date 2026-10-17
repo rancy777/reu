@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reverse-engineering-unpacking-runtime"
+version = "1.5.0"
+description = "Runtime MCP discovery, normalization, routing, evidence and corpus bridge for the reverse-engineering-unpacking skill."
+requires-python = ">=3.11"
+dependencies = [
+  "PyYAML>=6,<7",
+  "jsonschema>=4.23,<5",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp>=2.3,<3"]
+test = ["pytest>=8,<9"]
+
+[project.scripts]
+re-skill = "re_skill.cli:main"
+
+[tool.setuptools.package-data]
+re_skill = ["schemas/*.json"]
+
+[tool.setuptools.packages.find]
+where = ["runtime"]
+include = ["re_skill*"]

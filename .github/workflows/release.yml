@@ -1,0 +1,64 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUTF8: "1"
+
+jobs:
+  validate:
+    uses: ./.github/workflows/ci.yml
+    permissions:
+      contents: read
+
+  release:
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - name: Require release tag to match package version
+        run: |
+          python - <<'PY'
+          import os, tomllib
+          from pathlib import Path
+          version = tomllib.loads(Path("pyproject.toml").read_text())["project"]["version"]
+          if os.environ["GITHUB_REF_NAME"] != f"v{version}":
+              raise SystemExit("Release tag must match pyproject.toml version")
+          PY
+      - name: Verify committed manifest
+        run: python scripts/release.py --root . --verify
+      - name: Build source archive outside checkout after CI gates
+        run: python scripts/release.py --root . --zip "$RUNNER_TEMP/reu-release/reverse-engineering-unpacking-${GITHUB_REF_NAME#v}.zip"
+      - name: Build wheel
+        run: |
+          python -m pip install --upgrade build
+          python -m build --wheel --outdir "$RUNNER_TEMP/reu-wheels"
+      - name: Verify source archive
+        run: |
+          python scripts/release.py --root . --verify --zip "$RUNNER_TEMP/reu-release/reverse-engineering-unpacking-${GITHUB_REF_NAME#v}.zip"
+          git diff --exit-code
+      - name: Verify isolated wheel installation
+        run: python scripts/check_install.py --wheel-dir "$RUNNER_TEMP/reu-wheels"
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            "$RUNNER_TEMP/reu-release/reverse-engineering-unpacking-${GITHUB_REF_NAME#v}.zip" \
+            "$RUNNER_TEMP/reu-release/reverse-engineering-unpacking-${GITHUB_REF_NAME#v}.zip.sha256" \
+            "$RUNNER_TEMP"/reu-wheels/*.whl \
+            --generate-notes --verify-tag

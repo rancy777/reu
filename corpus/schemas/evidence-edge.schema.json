@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence Graph Edge",
+  "type": "object",
+  "required": [
+    "edge_id",
+    "from",
+    "to",
+    "relation",
+    "provenance"
+  ],
+  "properties": {
+    "edge_id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "relation": {
+      "type": "string",
+      "enum": [
+        "supports",
+        "contradicts",
+        "derived-from",
+        "observed-in",
+        "tested-by",
+        "requires",
+        "same-family-as",
+        "supersedes",
+        "applicable-to",
+        "produced-by",
+        "validated-by",
+        "fails-under",
+        "caused-by",
+        "resolves",
+        "analogous-to"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "created_at"
+      ],
+      "properties": {
+        "created_at": {
+          "type": "string"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reason": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

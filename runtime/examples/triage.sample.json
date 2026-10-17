@@ -1,0 +1,6 @@
+{
+  "filename": "sample.apk",
+  "format": "apk",
+  "architecture": "arm64",
+  "dynamic_dex": true
+}

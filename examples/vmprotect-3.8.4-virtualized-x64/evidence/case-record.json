@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-17",
+  "result": "PASS_WITH_SCOPE_LIMITS",
+  "protection": "VMProtect Ultimate 3.8.4.1754, SDK BeginVirtualization marker on one pure function; Options=0, VMComplexity=20; packing/import/memory/resource protections and anti-debug/VM detection disabled",
+  "source_directory": "D:\\Reu",
+  "git": {
+    "repository": false,
+    "branch": null,
+    "head": null,
+    "remote_baseline": null,
+    "dirty": "N/A; local uncommitted files"
+  },
+  "trace": {
+    "status": "EXPRESSION_RECOVERED_PENDING_VALIDATION",
+    "instructions": 21849,
+    "input": 42,
+    "output": 2807516844,
+    "concrete_syncs": 2579,
+    "seconds": 2.64000000001397,
+    "trace_sha256": "4d1cf728cefaaaeca327b5a13177d64bfd3835a96fa4c27045658dbf6c4b455a",
+    "protected_sha256": "54dc992a7682fc62e15c595f44b2d58a247fc75a60d454412c50222f75c28270",
+    "path_constraints": 0,
+    "strict_control_flow": "PASS; all replayed successor addresses match the next native trace row"
+  },
+  "acceptance": {
+    "result": "PASS",
+    "checks": {
+      "native_values": 100008,
+      "protected_differential_values": 128,
+      "native_instructions": 53,
+      "dll_imports": 0,
+      "vm_calls": 0,
+      "isolated_exe_checks": 45
+    },
+    "artifacts": {
+      "reu-recovered.dll": {
+        "sha256": "a0dd796575fdb360bef477f2a3c5c3eea2d2ae8aa1313ee71075067d04053c86",
+        "bytes": 2048
+      },
+      "reu-recovered.exe": {
+        "sha256": "fb3ab1087a61be783e4f4055828908acbdeb08413500b348a534dcb174b3d616",
+        "bytes": 4608
+      },
+      "reu-challenge.virtualized.exe": {
+        "sha256": "54dc992a7682fc62e15c595f44b2d58a247fc75a60d454412c50222f75c28270",
+        "bytes": 2327552
+      }
+    },
+    "seconds": 4.73399999999674,
+    "scope": "One known pure uint32 function recovered from a real protected trace and compiled to native code; harness CLI source rebuilt separately. Sampling, not exhaustive proof."
+  },
+  "formal_proof": "UNKNOWN: 120-second timeout. No exhaustive equivalence claim.",
+  "artifacts": {
+    "original": {
+      "file": "reu-challenge.exe",
+      "bytes": 4608,
+      "sha256": "b3788d54a7b08ec1680204a93c5cff08c2c0fc24f828fbdce45b385ce00b916e"
+    },
+    "protected": {
+      "file": "reu-challenge.virtualized.exe",
+      "bytes": 2327552,
+      "sha256": "54dc992a7682fc62e15c595f44b2d58a247fc75a60d454412c50222f75c28270"
+    },
+    "recovered_dll": {
+      "file": "reu-recovered.dll",
+      "bytes": 2048,
+      "sha256": "a0dd796575fdb360bef477f2a3c5c3eea2d2ae8aa1313ee71075067d04053c86"
+    },
+    "recovered_harness": {
+      "file": "reu-recovered.exe",
+      "bytes": 4608,
+      "sha256": "fb3ab1087a61be783e4f4055828908acbdeb08413500b348a534dcb174b3d616"
+    },
+    "recovered_ir": {
+      "file": "recovered.ll",
+      "bytes": 4460,
+      "sha256": "c06524b6a9ac150b4338ab0e9c2f6b4424fa765cfca5fc220fdcbcd3a61a77ec"
+    },
+    "normalized_trace": {
+      "file": "native-function.trace.txt",
+      "bytes": 5250336,
+      "sha256": "4d1cf728cefaaaeca327b5a13177d64bfd3835a96fa4c27045658dbf6c4b455a"
+    },
+    "challenge_source": {
+      "file": "challenge.cpp",
+      "bytes": 3280,
+      "sha256": "1afd637e612e28bcc2236a6a24be1fe844cee8205d5e78455dbeb092afbb21c1"
+    }
+  },
+  "rebuild": "DLL and EXE byte-identical from published source/IR in a separate local output directory"
+}

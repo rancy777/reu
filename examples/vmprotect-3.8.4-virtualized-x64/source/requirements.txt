@@ -1,0 +1,4 @@
+triton-library==1.0.0rc4
+pefile==2024.8.26
+capstone==5.0.9
+llvmlite==0.50.0

@@ -1,0 +1,12 @@
+[
+  {
+    "file": "reu-recovered.dll",
+    "result": "BYTE_IDENTICAL",
+    "sha256": "a0dd796575fdb360bef477f2a3c5c3eea2d2ae8aa1313ee71075067d04053c86"
+  },
+  {
+    "file": "reu-recovered.exe",
+    "result": "BYTE_IDENTICAL",
+    "sha256": "fb3ab1087a61be783e4f4055828908acbdeb08413500b348a534dcb174b3d616"
+  }
+]

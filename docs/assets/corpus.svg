@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06111e"/><stop offset="1" stop-color="#0b1728"/></linearGradient>
+  <filter id="shadow3"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-opacity=".35"/></filter>
+  <marker id="arr3" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a7f3d0"/></marker>
+</defs>
+<rect width="1600" height="900" fill="url(#bg3)"/>
+<text x="80" y="70" fill="#e2e8f0" font-size="38" font-family="Inter,Arial,sans-serif" font-weight="700">Four Long-Lived Knowledge Assets</text>
+<text x="80" y="108" fill="#94a3b8" font-size="20" font-family="Inter,Arial,sans-serif">Every validated analysis can become reusable, version-aware knowledge without promoting guesses to facts</text>
+
+<g font-family="Inter,Arial,sans-serif" filter="url(#shadow3)">
+<rect x="80" y="170" width="650" height="190" rx="24" fill="#0f172a" stroke="#60a5fa" stroke-width="2"/>
+<rect x="870" y="170" width="650" height="190" rx="24" fill="#0f172a" stroke="#34d399" stroke-width="2"/>
+<rect x="80" y="450" width="650" height="190" rx="24" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+<rect x="870" y="450" width="650" height="190" rx="24" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+</g>
+<g font-family="Inter,Arial,sans-serif">
+<text x="120" y="215" fill="#93c5fd" font-size="28" font-weight="700">Protector Case Corpus</text>
+<text x="120" y="255" fill="#cbd5e1" font-size="17">Sample-level facts: platform, architecture, protector, version,</text>
+<text x="120" y="282" fill="#cbd5e1" font-size="17">tools, observations, analysis path, result and provenance.</text>
+<text x="120" y="322" fill="#64748b" font-size="15">One successful sample ≠ universal method.</text>
+
+<text x="910" y="215" fill="#6ee7b7" font-size="28" font-weight="700">Runtime Compatibility Matrix</text>
+<text x="910" y="255" fill="#cbd5e1" font-size="17">Tool + provider + OS + architecture + runtime + API level +</text>
+<text x="910" y="282" fill="#cbd5e1" font-size="17">protector version, with explicit tested / unknown / incompatible states.</text>
+<text x="910" y="322" fill="#64748b" font-size="15">Compatibility is an experimental result, not a default assumption.</text>
+
+<text x="120" y="495" fill="#c4b5fd" font-size="28" font-weight="700">Evidence Graph</text>
+<text x="120" y="535" fill="#cbd5e1" font-size="17">Links samples, observations, tools, sources, hypotheses, experiments,</text>
+<text x="120" y="562" fill="#cbd5e1" font-size="17">claims, conflicts and validations into traceable relationships.</text>
+<text x="120" y="602" fill="#64748b" font-size="15">Independent evidence must be genuinely independent.</text>
+
+<text x="910" y="495" fill="#fbbf24" font-size="28" font-weight="700">Regression Corpus</text>
+<text x="910" y="535" fill="#cbd5e1" font-size="17">Executable capability checks and bounded assertions for triage,</text>
+<text x="910" y="562" fill="#cbd5e1" font-size="17">routing, provider behavior, security gates and knowledge rules.</text>
+<text x="910" y="602" fill="#64748b" font-size="15">PARTIAL / MANUAL stays visible; strict mode does not hide uncertainty.</text>
+</g>
+
+<g stroke="#a7f3d0" stroke-width="3" fill="none" marker-end="url(#arr3)">
+<path d="M800 410V690"/><path d="M760 265H850"/><path d="M760 545H850"/>
+</g>
+<rect x="615" y="700" width="370" height="105" rx="20" fill="#123326" stroke="#34d399" stroke-width="2"/>
+<text x="800" y="742" text-anchor="middle" fill="#86efac" font-size="23" font-family="Inter,Arial,sans-serif" font-weight="700">Knowledge Promotion Gate</text>
+<text x="800" y="772" text-anchor="middle" fill="#cbd5e1" font-size="15" font-family="Inter,Arial,sans-serif">provenance → scope → independence → validation → versioning</text>
+</svg>

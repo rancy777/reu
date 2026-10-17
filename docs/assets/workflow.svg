@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+  <filter id="shadow2"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-opacity=".35"/></filter>
+  <marker id="arr2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a5f3fc"/></marker>
+</defs>
+<rect width="1600" height="900" fill="url(#bg2)"/>
+<text x="80" y="70" fill="#e2e8f0" font-size="38" font-family="Inter,Arial,sans-serif" font-weight="700">Adaptive Analysis Workflow</text>
+<text x="80" y="108" fill="#94a3b8" font-size="20" font-family="Inter,Arial,sans-serif">The agent escalates only when evidence justifies the next level</text>
+
+<g font-family="Inter,Arial,sans-serif">
+  <g filter="url(#shadow2)">
+    <rect x="70" y="170" width="215" height="130" rx="18" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="330" y="170" width="215" height="130" rx="18" fill="#111827" stroke="#60a5fa" stroke-width="2"/>
+    <rect x="590" y="170" width="215" height="130" rx="18" fill="#111827" stroke="#a78bfa" stroke-width="2"/>
+    <rect x="850" y="170" width="215" height="130" rx="18" fill="#111827" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="1110" y="170" width="215" height="130" rx="18" fill="#111827" stroke="#34d399" stroke-width="2"/>
+    <rect x="1370" y="170" width="160" height="130" rx="18" fill="#111827" stroke="#22d3ee" stroke-width="2"/>
+  </g>
+  <g fill="#f8fafc" font-size="22" font-weight="700" text-anchor="middle">
+    <text x="177" y="215">1. Triage</text><text x="437" y="215">2. Classify</text><text x="697" y="215">3. Hypothesize</text><text x="957" y="215">4. Experiment</text><text x="1217" y="215">5. Validate</text><text x="1450" y="215">6. Learn</text>
+  </g>
+  <g fill="#cbd5e1" font-size="15" text-anchor="middle">
+    <text x="177" y="250">format, arch,</text><text x="177" y="274">runtime, entropy</text>
+    <text x="437" y="250">packer, protector,</text><text x="437" y="274">obfuscation family</text>
+    <text x="697" y="250">rank routes from</text><text x="697" y="274">evidence + version</text>
+    <text x="957" y="250">static / dynamic /</text><text x="957" y="274">runtime observation</text>
+    <text x="1217" y="250">expected vs actual,</text><text x="1217" y="274">scope + confidence</text>
+    <text x="1450" y="250">case + evidence +</text><text x="1450" y="274">regression update</text>
+  </g>
+</g>
+
+<g stroke="#a5f3fc" stroke-width="3" fill="none" marker-end="url(#arr2)">
+<path d="M285 235H325"/><path d="M545 235H585"/><path d="M805 235H845"/><path d="M1065 235H1105"/><path d="M1325 235H1365"/>
+</g>
+
+<!-- Escalation ladder -->
+<g font-family="Inter,Arial,sans-serif">
+<text x="80" y="385" fill="#e2e8f0" font-size="28" font-weight="700">Escalation Ladder</text>
+<text x="80" y="417" fill="#94a3b8" font-size="16">Stop when the evidence is sufficient; escalate when the current layer cannot explain the observation.</text>
+<g filter="url(#shadow2)">
+<rect x="90" y="460" width="210" height="95" rx="16" fill="#172033" stroke="#38bdf8"/>
+<rect x="335" y="460" width="210" height="95" rx="16" fill="#172033" stroke="#60a5fa"/>
+<rect x="580" y="460" width="210" height="95" rx="16" fill="#172033" stroke="#a78bfa"/>
+<rect x="825" y="460" width="210" height="95" rx="16" fill="#172033" stroke="#f59e0b"/>
+<rect x="1070" y="460" width="210" height="95" rx="16" fill="#172033" stroke="#34d399"/>
+<rect x="1315" y="460" width="195" height="95" rx="16" fill="#172033" stroke="#22d3ee"/>
+</g>
+<g fill="#f8fafc" font-size="18" font-weight="700" text-anchor="middle">
+<text x="195" y="500">Static PE / APK</text><text x="440" y="500">Packer Triage</text><text x="685" y="500">Debugger / Frida</text><text x="930" y="500">Memory / Runtime</text><text x="1175" y="500">Custom Analysis</text><text x="1412" y="500">Symbolic / VM</text>
+</g>
+<g fill="#94a3b8" font-size="14" text-anchor="middle">
+<text x="195" y="526">read-only</text><text x="440" y="526">fingerprints</text><text x="685" y="526">observe state</text><text x="930" y="526">dump / trace</text><text x="1175" y="526">Capstone / Unicorn</text><text x="1412" y="526">angr / custom VM</text>
+</g>
+</g>
+
+<!-- Failure loop -->
+<g font-family="Inter,Arial,sans-serif">
+<rect x="90" y="640" width="1420" height="150" rx="22" fill="#0b1220" stroke="#fb7185" stroke-width="2"/>
+<text x="120" y="682" fill="#fda4af" font-size="24" font-weight="700">Failure Diagnosis Loop</text>
+<text x="120" y="718" fill="#cbd5e1" font-size="17">Failure is evidence, not the end of the workflow.</text>
+<text x="120" y="752" fill="#94a3b8" font-size="15">Example: dumped PE will not start → classify likely cause → collect targeted observation → repair / redump / alternate route → revalidate.</text>
+<text x="120" y="777" fill="#94a3b8" font-size="15">Every experiment records prerequisites, observation, failure signs, alternative route, and confidence.</text>
+</g>
+</svg>

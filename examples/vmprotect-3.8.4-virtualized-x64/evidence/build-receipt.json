@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Reu",
+  "repository": null,
+  "worktree": "D:\\Reu",
+  "branch": null,
+  "head": null,
+  "formal_remote_baseline": null,
+  "dirty": "N/A; no Git repository",
+  "configuration": "MSVC x64 original; VMProtect SDK region virtualization only; Triton real-trace replay; LLVM 22.1 native COFF object; MSVC link /Brepro",
+  "commands": [
+    "source/build.ps1 -SdkDirectory D:\\Reu\\Protector",
+    "source/replay_native.py <normalized trace> <output> --binary <matching protected PE> --stop <recorded return VA>",
+    "source/compile_recovered.py <recovered LLVM IR> <native output>",
+    "source/link_recovered.ps1",
+    "source/verify_recovery.py --dll <native DLL> --exe <native harness EXE> --protected <protected EXE> --out <acceptance JSON>"
+  ],
+  "native_output": "D:\\Reu\\runtime-artifacts\\vmp-3.8.4-virtualized-x64-20261017\\recovered\\native",
+  "operations": {
+    "commit": false,
+    "push": false,
+    "merge": false,
+    "deploy": false,
+    "release": false
+  },
+  "baseline_build": {
+    "source": "D:\\Reu\\runtime-artifacts\\vmp-3.8.4-virtualized-x64-20261017\\source\\challenge.cpp",
+    "compiler": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\cl.exe",
+    "compiler_version": "19.44.35215.0",
+    "windows_sdk": "10.0.22621.0",
+    "source_sha256": "1afd637e612e28bcc2236a6a24be1fe844cee8205d5e78455dbeb092afbb21c1",
+    "branch": null,
+    "head": null,
+    "baseline": "Local directory D:\\Reu; no Git repository",
+    "configuration": "Release x64, MSVC, no CRT, ASLR + NX, deterministic link",
+    "output": "D:\\Reu\\runtime-artifacts\\vmp-3.8.4-virtualized-x64-20261017\\original\\reu-challenge.exe",
+    "sha256": "b3788d54a7b08ec1680204a93c5cff08c2c0fc24f828fbdce45b385ce00b916e"
+  }
+}

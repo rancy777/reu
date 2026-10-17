@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Protector Case",
+  "type": "object",
+  "required": [
+    "case_id",
+    "target",
+    "scope",
+    "observations",
+    "evidence_ids",
+    "status"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "sha256"
+      ],
+      "properties": {
+        "sha256": {
+          "type": "string"
+        },
+        "public_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sample_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "legal_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "platform": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "file_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "architecture": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "runtime": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "protector": {
+      "type": "object",
+      "properties": {
+        "family": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "toolchain": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "provider_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tool": {
+            "type": "string"
+          },
+          "version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "mcp_version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "initial_indicators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "analysis_path": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "failure_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "final_result": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "validation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "case-only",
+        "research",
+        "corroborated",
+        "disputed",
+        "superseded"
+      ]
+    },
+    "confidence": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "verification": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Optional explicit experiments; free-text validation does not count",
+      "properties": {
+        "reproduced": {
+          "type": "boolean"
+        },
+        "human_reviewed": {
+          "type": "boolean"
+        },
+        "experiment_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "independent_sources_reviewed": {
+          "type": "boolean",
+          "description": "Manual confirmation that sources have independent evidence lineages; source-count alone never proves independence"
+        }
+      }
+    }
+  }
+}
