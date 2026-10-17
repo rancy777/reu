@@ -19,7 +19,7 @@ Windows / .NET · Android / DEX · Native / ELF
 
 [**See the results**](#measured-cases) · [**Quick start**](#quick-start) · [CI & downloads](https://github.com/rancy777/reu/actions/workflows/ci.yml?query=branch%3Amain) · [Docs](#documentation)
 
-**English** · [简体中文](README.zh-CN.md)
+**English** · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Português (Brasil)](README.pt-BR.md) · [Русский](README.ru.md)
 
 </div>
 
@@ -245,6 +245,7 @@ The [seed corpus](corpus/STATUS.md) has one public metadata entry, 14 mechanism-
 | [Agent Skill](SKILL.md) | [Host Integration](runtime/host-integration.md) · [Provider Setup](integrations/PROVIDER-SETUP.md) |
 | [Evidence Policy](references/evidence-policy.md) | [Evidence Card](templates/evidence-card.md) · [Case Report](templates/case-report.md) |
 | [Research Sources](references/source-registry.md) | [MCP Sources](references/mcp-source-registry.md) · [Corpus Status](corpus/STATUS.md) |
+| [README translations](docs/translations.md) | Available languages, translation scope and maintenance |
 
 ## Contributing
 

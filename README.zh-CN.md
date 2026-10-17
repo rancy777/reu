@@ -19,7 +19,7 @@ Windows / .NET · Android / DEX · Native / ELF
 
 [**看实测**](#实测案例) · [**快速上手**](#快速上手) · [CI 与下载](https://github.com/rancy777/reu/actions/workflows/ci.yml?query=branch%3Amain) · [文档](#文档导航)
 
-[English](README.md) · **简体中文**
+[English](README.md) · **简体中文** · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Português (Brasil)](README.pt-BR.md) · [Русский](README.ru.md)
 
 </div>
 
@@ -245,6 +245,7 @@ re-skill regress --strict --file corpus/regression/automated.jsonl
 | [Agent Skill](SKILL.md) | [宿主集成](runtime/host-integration.md) · [Provider 配置](integrations/PROVIDER-SETUP.md) |
 | [证据规范](references/evidence-policy.md) | [证据卡模板](templates/evidence-card.md) · [案例报告模板](templates/case-report.md) |
 | [研究来源](references/source-registry.md) | [MCP 来源](references/mcp-source-registry.md) · [语料状态](corpus/STATUS.md) |
+| [README 多语言](docs/translations.md) | 可用语言、翻译范围与维护约定 |
 
 ## 参与贡献
 

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added Japanese, Korean, Spanish, French, German, Brazilian Portuguese and Russian README overviews, with a shared nine-language selector and a translation maintenance guide. Commands, evidence screenshots and experiment limits are preserved.
 - Established the private `rancy777/reu` GitHub repository and recorded a successful 15-job remote CI run, with source/wheel artifacts and Windows native-demo evidence.
 - Made source inventory, ZIP ordering and producer metadata platform-independent after the first remote CI run exposed Windows/Linux path-order differences.
 - Fixed a Windows corpus-lock initialization race: lock acquisition no longer writes a byte before obtaining the lock. Concurrent duplicate-ID checks now cover eight fresh-file rounds.

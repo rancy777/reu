@@ -53,6 +53,8 @@ Never add credentials, private endpoints, proprietary binaries, or executable sa
 
 Keep changes focused. Update `CHANGELOG.md` for user-visible behavior, provider policy, schema, or workflow changes. Run the full test suite and release verification before requesting review.
 
+For README translations, follow the [translation scope and maintenance guide](docs/translations.md). Keep language links reciprocal, preserve commands and evidence limits, and update affected languages together when shared project facts change.
+
 ## Offline acceptance and packaging
 
 Run `re-skill regress --strict --file corpus/regression/automated.jsonl`. Keep research results from `corpus/regression/research.jsonl` separate; its strict run currently returns 2. Changes to acceptance scope must preserve and explain existing assertions.
